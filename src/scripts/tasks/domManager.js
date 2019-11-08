@@ -1,5 +1,5 @@
 import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
-import { postTask } from "./eventHandlers"
+import { postTask, deleteTask } from "./eventHandlers"
 
 // loop through tasks and add them to the DOM
 export const renderTasks = (tasks) => {
@@ -24,3 +24,8 @@ export const renderTasks = (tasks) => {
       attachEventListenerToSaveTaskButton()
     })
   }
+
+ export const attachEventListenerToDeleteTaskButton = () => {
+  const container = document.querySelector("#container")
+container.addEventListener("click", deleteTask)
+ }

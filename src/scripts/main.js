@@ -1,5 +1,5 @@
 import { getAllTasks } from "./tasks/APIManager"
-import { renderTasks, attachEventListenerToCreateNewTaskButton } from "./tasks/domManager"
+import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton } from "./tasks/domManager"
 import { createNewTaskButton } from "./tasks/createForm"
 
 /*
@@ -18,3 +18,4 @@ getAllTasks()
 
 createNewTaskButton()
 attachEventListenerToCreateNewTaskButton()
+attachEventListenerToDeleteTaskButton()
