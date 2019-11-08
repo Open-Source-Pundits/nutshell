@@ -1,5 +1,6 @@
 import { saveNewTask, getAllTasks } from "./APIManager"
 import { renderTasks } from "./domManager"
+import { createNewTaskButton } from "./createForm"
 
 export const postTask = () => {
     const date = document.querySelector("#taskDate").value
@@ -9,7 +10,7 @@ export const postTask = () => {
         userId: 1,
         taskName: task,
         dueDate: date,
-        completion: true
+        completion: false
     }
     saveNewTask(newTaskEntry)
         .then(getAllTasks)
@@ -17,6 +18,7 @@ export const postTask = () => {
             renderTasks(response)
             document.querySelector("#taskDate").value = ""
             document.querySelector("#taskName").value = ""
+            createNewTaskButton()
         })
 }
 

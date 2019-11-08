@@ -1,5 +1,6 @@
-import { makeTaskComponent } from "./createForm"
+import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
 import { postTask } from "./eventHandlers"
+import { saveNewTask } from "./APIManager"
 
 // loop through tasks and add them to the DOM
 export const renderTasks = (tasks) => {
@@ -12,7 +13,15 @@ export const renderTasks = (tasks) => {
     container.innerHTML = HtmlForAllTasks
   }
 
-  export const attachEventListenerToTaskButton = () => {
-    const newTaskButton = document.querySelector("#newTaskButton")
-    newTaskButton.addEventListener("click", postTask)
+  export const attachEventListenerToSaveTaskButton = () => {
+    const saveNewTaskButton = document.querySelector("#saveNewTaskButton")
+    saveNewTaskButton.addEventListener("click", postTask)
+  }
+
+  export const attachEventListenerToCreateNewTaskButton = () => {
+    const createNewTaskButton = document.querySelector("#newTaskButton")
+    createNewTaskButton.addEventListener("click", event =>{
+      buildAndAppendNewTaskForm()
+      attachEventListenerToSaveTaskButton()
+    })
   }

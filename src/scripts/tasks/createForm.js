@@ -30,8 +30,16 @@ export const makeTaskComponent = (tasks) => {
             <input type="date" name="date-input" id="taskDate">
         </section>
     </form>
-    <button id="newTaskButton">Save New Task</button>
+    <button id="saveNewTaskButton">Save New Task</button>
 `
 const formContainer = document.querySelector(".formContainer")
 formContainer.innerHTML = newTaskForm
+  }
+
+  export const createNewTaskButton = () => {
+      const createNewTaskButton = `
+      <button id="newTaskButton">Create a New Task</button>
+      `
+      const formContainer = document.querySelector(".formContainer")
+      formContainer.innerHTML = createNewTaskButton
   }

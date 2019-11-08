@@ -1,6 +1,6 @@
 import { getAllTasks } from "./tasks/APIManager"
-import { renderTasks, attachEventListenerToTaskButton } from "./tasks/domManager"
-import { buildAndAppendNewTaskForm } from "./tasks/createForm"
+import { renderTasks, attachEventListenerToCreateNewTaskButton } from "./tasks/domManager"
+import { createNewTaskButton } from "./tasks/createForm"
 
 /*
     Import all the tools into main.js that are needed to display
@@ -16,5 +16,5 @@ document.querySelector("#container").innerHTML
 getAllTasks()
 .then(response => renderTasks(response))
 
-buildAndAppendNewTaskForm()
-attachEventListenerToTaskButton()
+createNewTaskButton()
+attachEventListenerToCreateNewTaskButton()
