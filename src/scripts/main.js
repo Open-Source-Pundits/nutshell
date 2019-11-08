@@ -4,8 +4,15 @@
     or the dashboard should be rendered.
 */
 
-const message = "Time to build an application that gives you all the information you need in a Nutshell"
+// const message = "Time to build an application that gives you all the information you need in a Nutshell"
 
-document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
+// document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
 
-console.log(message)
+// console.log(message)
+
+import API from "./events/APIManager"
+import DOM from "./events/domManager"
+
+API.getEvents()
+    .then(DOM.putEventsOnDOM)
+    .then(DOM.putEventFormOnDOM)
