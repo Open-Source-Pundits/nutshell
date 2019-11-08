@@ -5,8 +5,10 @@ import { postTask, deleteTask } from "./eventHandlers"
 export const renderTasks = (tasks) => {
     let HtmlForAllTasks = ""
     tasks.forEach(task => {
+      if (task.completion !== true) {
       const taskHtml = makeTaskComponent(task)
       HtmlForAllTasks += taskHtml
+      }
     })
     const container = document.querySelector("#container")
     container.innerHTML = HtmlForAllTasks

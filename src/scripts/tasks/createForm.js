@@ -8,7 +8,7 @@ export const makeTaskComponent = (tasks) => {
       <section>
         <h3 id="task--${tasks.id}">${tasks.taskName}</h3>
         <p>Due Date: ${tasks.dueDate}</p>
-        <label>Completed:</label><input type="checkbox" name="vehicle1" svalue="Bike">
+        <label>Completed:</label><input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}>
         <button id="deleteButton--${tasks.id}">Delete</button>
         </section>
     `
