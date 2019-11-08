@@ -1,6 +1,5 @@
 import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
 import { postTask } from "./eventHandlers"
-import { saveNewTask } from "./APIManager"
 
 // loop through tasks and add them to the DOM
 export const renderTasks = (tasks) => {

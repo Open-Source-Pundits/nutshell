@@ -20,4 +20,10 @@ export const getAllTasks = () => {
     })
   }
 
+  export const deleteSingleTask = (taskId) => {
+    return fetch(`${baseURL}tasks/${taskId}`, {
+        method: "DELETE"
+    })
+        .then(response => response.json())
+}
  
