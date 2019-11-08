@@ -8,6 +8,7 @@ import { createNewTaskButton } from "./tasks/createForm"
     or the dashboard should be rendered.
 */
 
+sessionStorage.setItem("activeUser", 1)
 
 document.querySelector("#container").innerHTML
 

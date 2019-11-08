@@ -1,3 +1,8 @@
+/*
+Author: Lauren Riddle
+Purpose: To render the html to the DOM and add event listeners
+*/
+
 import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
 import { postTask, deleteTask } from "./eventHandlers"
 
