@@ -1,17 +1,15 @@
-export default (title) => {
-	// TO DO: grab user id from the system storage.
-	let login = // user id;
+// Author: Manila Bui
+// Creates the html for the top nav + main container.
 
-	if (title === "Auth") {
-		title = "Nutshell";
-		login = `Login/Register`;
-	};
+export default username => {
+	// If there is no username, then the greeting is blank.
+	const userGreeting = !username ? "" : `Hi ${username}!`;
 
 	return `
-		<nav>
-			<div class="logo"><a href="index.html">NS</a></div>
-			<h1 class="page-title">${title}</h1>
-			<div class="login">${login}</div>
+		<nav class="topNav">
+			<div class="logo">NS</div>
+			<div class="title">Nutshell</div>
+			<div class="userGreeting">${userGreeting}</div>
 		</nav>
 		<div class="mainContainer"><div>
 	`;
