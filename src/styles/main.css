@@ -5,14 +5,50 @@ body {
 }
 
 .topNav {
-	padding: 10px;
 	background: seaGreen;
 	color: seaShell;
-	display: flex;
-	justify-content: space-between;
 }
 
-.title {
-	text-transform: uppercase;
+.logo, .userGreeting {
+	padding: 20px;
+}
+
+.logo {
+	border: 1px solid seaShell;
+}
+
+/* Landing */
+.landingContainer {
+	display: flex;
+	margin: 30px;
+}
+
+.landingCol {
+	width: 100%;
+}
+
+.landingSectionContainer {
+	display: grid;
+	grid-template-rows: 30px auto 30px;
+	border: 1px solid seaGreen;
+	padding: 10px;
+	margin: 15px;
+	margin-bottom: 30px;
+	height: 250px;
+}
+
+.landingSectionContainer-messages {
+	height: 530px;
+}
+
+.landingSectionHeader {
+	border-bottom: 1px solid seaGreen;
 	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.landingSectionFooter {
+	border-top: 1px solid seaGreen;
+	font-style: italic;
+	padding-top: 5px;
 }
