@@ -1,9 +1,9 @@
 // Author: Manila Bui
 // Creates the html for secondary container, which goes into the main container.
 // This container holds the side nav, primary content for the individual pages + form container.
-import { pages } from "../utils/global";
+const pages = ["Home", "Events", "Tasks", "Messages", "News", "Friends"];
 
-const createNavLink = page => `<p class="navLink">${page}</p>`;
+const createNavLink = page => `<p class="navLink dim pointer">${page}</p>`;
 
 export default currPage => {
 	let navLinks = "";
@@ -14,10 +14,12 @@ export default currPage => {
 	});
 
 	return `
-		<nav class="sideNav">${navLinks}</nav>
-		<div class="contentContainer">
-			<h2 class="pageTitle">${currPage}</h2>
+		<div class="flex center">
+			<nav class="sideNav">${navLinks}</nav>
+			<div class="contentContainer">
+				<h2 class="pageTitle">${currPage}</h2>
+			</div>
+			<div class="formContainer"></div>
 		</div>
-		<div class="formContainer"></div>
 	`;
 };

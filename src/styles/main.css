@@ -1,3 +1,4 @@
+/* App */
 body {
 	font-family: Avenir, sans-serif;
 	margin: 0;
@@ -18,15 +19,6 @@ body {
 }
 
 /* Landing */
-.landingContainer {
-	display: flex;
-	margin: 30px;
-}
-
-.landingCol {
-	width: 100%;
-}
-
 .landingSectionContainer {
 	display: grid;
 	grid-template-rows: 30px auto 30px;
@@ -42,13 +34,15 @@ body {
 }
 
 .landingSectionHeader {
-	border-bottom: 1px solid seaGreen;
 	font-weight: bold;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
+}
+
+.landingSectionHeader, .landingContentContainer {
+	border-bottom: 1px solid seaGreen;
 }
 
 .landingSectionFooter {
-	border-top: 1px solid seaGreen;
 	font-style: italic;
-	padding-top: 5px;
+	padding-top: 10px;
 }

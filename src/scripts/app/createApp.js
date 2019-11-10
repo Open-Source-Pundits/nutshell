@@ -6,7 +6,7 @@ export default username => {
 
 	return `
 		<nav class="topNav flex items-center pa2">
-			<div class="logo dim ma1 f5">NS</div>
+			<div class="logo ma2 f5 dim pointer">NS</div>
 			<h1 class="siteTitle center ttu">Nutshell</h1>
 			<div class="userGreeting">${userGreeting}</div>
 		</nav>
