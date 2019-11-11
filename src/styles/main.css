@@ -57,9 +57,10 @@ body {
 	flex-basis: 40%;
 	border: 1px seagreen solid;
 	padding: 10px 20px;
-	margin: 10px;
+	margin: 20px;
 }
 
 .sideNav {
 	flex-basis: 20%;
+	margin: 20px;
 }
