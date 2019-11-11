@@ -5,7 +5,7 @@ export default username => {
 	const userGreeting = !username ? "" : `Sup, ${username}.`;
 
 	return `
-		<nav class="topNav flex items-center pa2">
+		<nav class="topNav flex items-center pa2 shadow-3">
 			<div class="logo ma2 f5 dim pointer">NS</div>
 			<h1 class="siteTitle center ttu">Nutshell</h1>
 			<div class="userGreeting">${userGreeting}</div>

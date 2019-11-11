@@ -1,10 +1,9 @@
 // Author: Manila Bui
 // All rendering associated with the news.
-// Executed when you click news link on landing or side nav
-import { renderContentContainer } from "../app/domManager.js";
 
-export const renderNews = () => {
-	// puts news html into content container
-	renderContentContainer("News");
+// Executed when news footer on landing page is clicked.
+export const renderNewsPage = () => {
+	const contentContainer = document.querySelector(".contentContainer");
 	
+	contentContainer.innerHTML += "banana";
 };

@@ -15,8 +15,8 @@ export default currPage => {
 
 	return `
 		<div class="flex center">
-			<nav class="sideNav">${navLinks}</nav>
-			<div class="contentContainer">
+			<nav class="sideNav shadow-3 pa4 mt4">${navLinks}</nav>
+			<div class="contentContainer ma3 pl3">
 				<h2 class="pageTitle">${currPage}</h2>
 			</div>
 			<div class="formContainer"></div>
