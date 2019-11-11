@@ -8,10 +8,10 @@ import { renderTasks, attachEventListenerToCreateNewTaskButton } from "./domMana
 import { createNewTaskButton } from "./createForm"
 
 // this function grabs the value of the input box, and POSTs the new data to the API, then renders the new data on the DOM
-export const postTask = () => {
+export const postTask = id => {
     const date = document.querySelector("#taskDate").value
     const task = document.querySelector("#taskName").value
-    
+
     const activeUser = sessionStorage.getItem("activeUser")
     const activeUserId = parseInt(activeUser)
     const newTaskEntry = {
