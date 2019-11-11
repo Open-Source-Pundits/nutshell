@@ -1,6 +1,8 @@
 
 export default {
 
+    //Creates HTML templates for events, new event form, and new event form button
+
     eventsFormHTML() {
         return /*html*/`
         <div id="mainEventsDiv">

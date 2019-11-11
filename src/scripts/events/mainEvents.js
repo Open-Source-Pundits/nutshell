@@ -1,4 +1,4 @@
-//Trey's Events Stuff
+//Put active user events and new form button on DOM
 
 import API from "../events/APIManager.js"
 import DOM from "../events/domManager.js"

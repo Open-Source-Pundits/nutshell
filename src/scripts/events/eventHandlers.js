@@ -1,6 +1,8 @@
 import API from "../events/APIManager.js"
 import DOM from "../events/domManager.js"
 
+//Defines event handlers
+
 export default {
 
     attachEventSaveButton() {

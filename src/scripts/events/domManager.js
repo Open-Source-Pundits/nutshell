@@ -1,6 +1,8 @@
 import HTMLforms from "../events/createForm.js"
 import eventHandlers from "../events/eventHandlers"
 
+//Puts new event form on DOM (triggered by putNewEventButtonOnDOM())
+
 const putEventFormOnDOM = () => {
 
     const eventFormContainer = document.querySelector(".formContainer")
@@ -12,6 +14,8 @@ const putEventFormOnDOM = () => {
     saveButton.addEventListener("click", () => eventHandlers.attachEventSaveButton())
 
 }
+
+//Puts all events of active user on DOM
 
 export default {
 
@@ -29,6 +33,8 @@ export default {
 
         eventsContainer.innerHTML = eventsHTML
     },
+
+    //puts "new event" button on DOM (includes putEventFormOnDOM())
 
     putNewEventButtonOnDOM() {
 
