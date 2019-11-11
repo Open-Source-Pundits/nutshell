@@ -1,6 +1,6 @@
 /*
 Author: Lauren Riddle
-Purpose: This module has functions that hold the HTML that will be rendered on the page
+Purpose: This module has functions that hold the HTML that will be rendered on the tasks page
 */
 export const makeTaskComponent = (tasks) => {
     // Create HTML structure for a task
@@ -8,14 +8,15 @@ export const makeTaskComponent = (tasks) => {
       <section>
         <h3 id="task--${tasks.id}">${tasks.taskName}</h3>
         <p>Due Date: ${tasks.dueDate}</p>
-        <label>Completed:</label><input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}>
+        <label>Completed:</label><input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}">
         <button id="deleteButton--${tasks.id}">Delete</button>
         </section>
     `
-  }
+}
 
 
-  export const  buildAndAppendNewTaskForm = () => {
+export const buildAndAppendNewTaskForm = () => {
+    // make html for the new task form and put on the DOM
     let newTaskForm =
         `<h1>New Task</h1>
     <form id="tasksForm">
@@ -31,14 +32,15 @@ export const makeTaskComponent = (tasks) => {
     </form>
     <button id="saveNewTaskButton">Save New Task</button>
 `
-const formContainer = document.querySelector(".formContainer")
-formContainer.innerHTML = newTaskForm
-  }
+    const formContainer = document.querySelector(".formContainer")
+    formContainer.innerHTML = newTaskForm
+}
 
-  export const createNewTaskButton = () => {
-      const createNewTaskButton = `
+export const createNewTaskButton = () => {
+    // make html for the create new task button and put it on the DOM
+    const createNewTaskButton = `
       <button id="newTaskButton">Create a New Task</button>
       `
-      const formContainer = document.querySelector(".formContainer")
-      formContainer.innerHTML = createNewTaskButton
-  }
+    const formContainer = document.querySelector(".formContainer")
+    formContainer.innerHTML = createNewTaskButton
+}
