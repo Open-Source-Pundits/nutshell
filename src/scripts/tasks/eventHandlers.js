@@ -50,4 +50,13 @@ export const deleteTask = () => {
     }
 }
 
+export const completeTask = () => {
+    if (event.target.id.startsWith("taskCheckbox--")) {
+        // Extract entry id from the button's id attribute
+        const taskToDelete = event.target.id.split("--")[1]
+        console.log(taskToDelete)
+        console.log("This was clicked")
+      }
+}
+
 
