@@ -15,6 +15,6 @@ export const renderLanding = id => {
 		const currSection = footer.innerHTML.split(" ")[2];
 		console.log(currSection)
 
-		footer.addEventListener("click", () => handleFooterClick(currSection));
+		footer.addEventListener("click", () => handleFooterClick(id, currSection));
 	});
 };

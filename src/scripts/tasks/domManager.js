@@ -20,17 +20,17 @@ export const renderTasks = (tasks) => {
 }
 
 // attach event listener to the save button and call postTask when the button is clicked
-export const attachEventListenerToSaveTaskButton = () => {
+export const attachEventListenerToSaveTaskButton = id => {
   const saveNewTaskButton = document.querySelector("#saveNewTaskButton")
-  saveNewTaskButton.addEventListener("click", postTask)
+  saveNewTaskButton.addEventListener("click", () => postTask(id))
 }
 
 // attach event listener to the create new task button and call buildAndAppendNewTaskForm and attachEventListenerToSaveTaskButton when the button is clicked
-export const attachEventListenerToCreateNewTaskButton = () => {
+export const attachEventListenerToCreateNewTaskButton = id => {
   const createNewTaskButton = document.querySelector("#newTaskButton")
-  createNewTaskButton.addEventListener("click", event => {
+  createNewTaskButton.addEventListener("click", () => {
     buildAndAppendNewTaskForm()
-    attachEventListenerToSaveTaskButton()
+    attachEventListenerToSaveTaskButton(id)
   })
 }
 

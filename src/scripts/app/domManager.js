@@ -16,7 +16,7 @@ export const renderApp = id => {
 		: getUser(id)
 			.then(user => {
 				container.innerHTML = createApp(user.username);
-				renderLanding();
+				renderLanding(id);
 			});
 };
 
