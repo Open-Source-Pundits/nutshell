@@ -24,7 +24,4 @@ sessionStorage.setItem("activeUser", 1);
 const activeUserId = sessionStorage.getItem("activeUser") ? sessionStorage.getItem("activeUser") : 0;
 
 renderApp(activeUserId);
-<<<<<<< HEAD
-=======
 
->>>>>>> master
