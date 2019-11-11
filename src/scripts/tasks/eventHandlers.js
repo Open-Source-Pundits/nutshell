@@ -77,9 +77,7 @@ export const completeTask = () => {
     }
 }
 
-const saveTaskNameEdit = () => {
-
-}
+// this function allows the user to click on the task name, edit it, push enter, and PUT the edited entry to the API, and then reload the tasks
 export const editTask = () => {
     if (event.target.id.startsWith("task--")) {
         // Extract entry id from the checkbox's id attribute
@@ -92,6 +90,7 @@ export const editTask = () => {
                 document.querySelector(`#taskNameEdit--${taskToEdit}`).value = task.taskName
 
                 const nameInput = document.querySelector(`#taskNameEdit--${taskToEdit}`)
+                // attach event listener to the name input box and when enter is pressed, perform a PUT and GET to API
                 nameInput.addEventListener("keypress", event => {
                     if (event.charCode === 13) {
                         const nameInputValue = document.querySelector(`#taskNameEdit--${taskToEdit}`).value

@@ -46,6 +46,7 @@ export const attachEventListenerToCheckBox = () => {
   container.addEventListener("change", completeTask)
 }
 
+// attach event listener to task name
 export const attachEventListenerToTaskName = () => {
   const container = document.querySelector(".contentContainer")
   container.addEventListener("click", editTask)
