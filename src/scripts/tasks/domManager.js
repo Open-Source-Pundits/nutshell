@@ -39,3 +39,15 @@ export const attachEventListenerToDeleteTaskButton = () => {
   const container = document.querySelector(".contentContainer")
   container.addEventListener("click", deleteTask)
 }
+
+export const attachEventListenerToCheckBox = () => {
+  const container = document.querySelector(".contentContainer")
+  container.addEventListener("change", () => {
+    if (event.target.id.startsWith("taskCheckbox--")) {
+      // Extract entry id from the button's id attribute
+      const taskToDelete = event.target.id.split("--")[1]
+      console.log(taskToDelete)
+      console.log("This was clicked")
+    }
+  })
+}
