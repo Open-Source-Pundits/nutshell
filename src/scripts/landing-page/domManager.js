@@ -14,6 +14,6 @@ export const renderLanding = id => {
 	sectionFooters.forEach(footer => {
 		const currSection = footer.innerHTML.split(" ")[2];
 
-		footer.addEventListener("click", () => handleFooterClick(currSection));
+		footer.addEventListener("click", () => handleFooterClick(id, currSection));
 	});
 };

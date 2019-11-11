@@ -6,8 +6,8 @@ import { renderNewsPage } from "../news/domManager";
 const capitalizeWord = word => `${word[0].toUpperCase()}${word.slice(1)}`;
 
 // This handles rendering the pages associated with the individual sections.
-export const handleFooterClick = page => {
+export const handleFooterClick = (id, page) => {
 	renderContentContainer(capitalizeWord(page));
 
-	if (page === "news") renderNewsPage();
+	if (page === "news") renderNewsPage(id);
 }
