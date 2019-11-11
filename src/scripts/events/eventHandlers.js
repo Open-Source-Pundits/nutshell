@@ -1,5 +1,7 @@
 import API from "../events/APIManager.js"
 import DOM from "../events/domManager.js"
+const activeUser = sessionStorage.getItem("activeUser")
+const activeUserId = parseInt(activeUser)
 
 //Defines event handlers
 
@@ -16,7 +18,7 @@ export default {
         const eventLocation = document.querySelector("#eventLocationField")
 
         const newEventEntry = {
-            "userId": ,
+            "userId": activeUserId,
             "name": eventName.value,
             "date": eventDate.value,
             "location": eventLocation.value

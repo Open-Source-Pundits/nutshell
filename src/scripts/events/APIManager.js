@@ -1,19 +1,21 @@
 
-const baseUrl = "http://127.0.0.1:8088/events"
+const baseUrl = "http://localhost:8088/events"
 
 export default {
 
     //fetch call for all event for active user
 
-    getEvents(id) {
-        console.log(id)
-        return fetch(`${baseUrl}?userId=${id}`)
+    getEvents() {
+        const activeUser = sessionStorage.getItem("activeUser")
+        const activeUserId = parseInt(activeUser)
+        return fetch(`${baseUrl}?userId=${activeUserId}`)
             .then(response => response.json())
     },
 
     //POST to add new event for active user
 
     newEvent(event) {
+        console.log(event)
         return fetch(baseUrl, {
             method: "POST",
             headers: {
