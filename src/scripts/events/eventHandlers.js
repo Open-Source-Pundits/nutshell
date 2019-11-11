@@ -14,7 +14,7 @@ export default {
         const eventLocation = document.querySelector("#eventLocationField")
 
         const newEventEntry = {
-            "userId": 1,
+            "userId": 2,
             "name": eventName.value,
             "date": eventDate.value,
             "location": eventLocation.value

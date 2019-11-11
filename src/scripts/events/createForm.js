@@ -32,5 +32,10 @@ export default {
                 <p>Location: ${allEvents.location}</p>
         `
        
+    },
+    newEventButton(){
+        return /*html*/`
+        <button class="eventFormFieldset" type="button" id="newEventButton">New Event</button>
+        `
     }
 }
