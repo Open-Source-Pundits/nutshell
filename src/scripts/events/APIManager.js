@@ -5,8 +5,9 @@ export default {
 
     //fetch call for all event for active user
 
-    getEvents() {
-        return fetch(baseUrl)
+    getEvents(id) {
+        console.log(id)
+        return fetch(`${baseUrl}?userId=${id}`)
             .then(response => response.json())
     },
 

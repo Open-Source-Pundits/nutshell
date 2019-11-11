@@ -5,8 +5,9 @@ import DOM from "../events/domManager.js"
 
 export default {
 
-    callEvents() {
-        API.getEvents()
+    callEvents(id) {
+        console.log(id)
+        API.getEvents(id)
             .then(DOM.putEventsOnDOM)
             .then(DOM.putNewEventButtonOnDOM)
 

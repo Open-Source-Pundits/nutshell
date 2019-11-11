@@ -5,6 +5,7 @@ import { handleFooterClick } from "./eventHandlers";
 
 // Executed by renderApp
 export const renderLanding = id => {
+	
 	const mainContainer = document.querySelector(".mainContainer");
 
 	mainContainer.innerHTML = createLanding();
@@ -13,7 +14,6 @@ export const renderLanding = id => {
 
 	sectionFooters.forEach(footer => {
 		const currSection = footer.innerHTML.split(" ")[2];
-		console.log(currSection)
 
 		footer.addEventListener("click", () => handleFooterClick(id, currSection));
 	});
