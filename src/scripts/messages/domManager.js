@@ -1,18 +1,21 @@
-import createForm from "./createForm"
-import APIManager from "./APIManager"
+// Author: James Chapman
+// This module has everything that will effect the actual DOM
+import createForm from "./createForm.js"
+import APIManager from "./APIManager.js"
+import saveMessageHandler from "../messages/eventHandlers.js"
 
 let messagesEntries = ""
 export default {
     fillHTML: () => {
     let formContainer = document.querySelector(".formContainer")
-    formContainer.innerHTML = createForm.populateHTML()
+    formContainer.innerHTML = createForm.messageForm()
     },
     addHTML: (messages) => {
         let contentContainer = document.querySelector(".contentContainer")
-        contentContainer.innerHTML = ""
+        messagesEntries = ""
         for(let i = 0; i< messages.length; i++){
             messagesEntries = messages[i];
-            messagesEntries.innerHTML += createForm.makeMessageComponent(messagesEntries)
+            contentContainer.innerHTML += createForm.makeMessageEntryComponent(messagesEntries)
         }
         
     },
@@ -22,10 +25,17 @@ export default {
             "message": message,
             "timestamp": timestamp
         }
-    }
+    },
 }
-const messagesGetCall = ()=>{
+
+messagesGetCall: ()=>{
     APIManager.getMessages()
-    .then(entries => addHTML(entries))
+    .then(entries => this.addHTML(entries))
 }
+
+const messageSubmit = document.querySelector(".submitMessageButton")
+messageSubmit.addEventListener("click", event=>{
+    saveMessageHandler.saveMessageHandler(event)
+})
+
 

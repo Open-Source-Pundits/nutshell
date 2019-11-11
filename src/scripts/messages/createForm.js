@@ -1,14 +1,16 @@
+// Author: James Chapman
+// Creates the forms to the DOM to either be added or edited
 export default {
     messageForm: () => {
         return `
         <h2>Messages</h2> 
             <form>
                 <fieldset>
-                <label class="inputField" id="messageTitle" for="messages">New Message:</label>
-                <input type="textarea" name="messages" id="messageTextArea">
+                <label class="inputField" class="messageTitle" for="messages">New Message:</label>
+                <input type="textarea" name="messages" class="messageTextArea">
                 </fieldset>
             </form>
-            <button type="submit" id="messageButton">Submit Message</button>
+            <button type="submit" id="submitMessageButton">Submit Message</button>
         `
     },
     makeMessageEntryComponent:(entry) => {

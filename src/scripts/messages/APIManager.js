@@ -1,3 +1,6 @@
+// Author: James Chapman
+// Handles all of the fetch calls to the API
+
 const baseurl = "http://localhost:8088/"
 
 export default {
