@@ -1,19 +1,19 @@
 /*
 Author: Lauren Riddle
-Purpose: To create event handlers that POST and DELETE a task
+Purpose: To create event handlers that POST, PUT, and DELETE a task
 */
 
-import { saveNewTask, getAllTasks, deleteSingleTask } from "./APIManager"
+import { saveNewTask, getAllTasks, deleteSingleTask, getSingleTask, editSingleTask } from "./APIManager"
 import { renderTasks, attachEventListenerToCreateNewTaskButton } from "./domManager"
 import { createNewTaskButton } from "./createForm"
+const activeUser = sessionStorage.getItem("activeUser")
+const activeUserId = parseInt(activeUser)
 
 // this function grabs the value of the input box, and POSTs the new data to the API, then renders the new data on the DOM
 export const postTask = id => {
     const date = document.querySelector("#taskDate").value
     const task = document.querySelector("#taskName").value
 
-    const activeUser = sessionStorage.getItem("activeUser")
-    const activeUserId = parseInt(activeUser)
     const newTaskEntry = {
         userId: activeUserId,
         taskName: task,
@@ -29,7 +29,8 @@ export const postTask = id => {
             document.querySelector("#taskDate").value = ""
             document.querySelector("#taskName").value = ""
             createNewTaskButton()
-            attachEventListenerToCreateNewTaskButton()       })
+            attachEventListenerToCreateNewTaskButton()
+        })
 }
 
 
@@ -49,5 +50,33 @@ export const deleteTask = () => {
             })
     }
 }
+
+// this function performs a PUT on the task that will changed the completed property to True when the checkbox is checked
+export const completeTask = () => {
+    if (event.target.id.startsWith("taskCheckbox--")) {
+        // Extract entry id from the checkbox's id attribute
+        const taskToEdit = event.target.id.split("--")[1]
+        console.log(taskToEdit)
+        getSingleTask(taskToEdit)
+            .then(task => {
+                // change the completion property to "true"
+                const updatedTaskEntry = {
+                    userId: activeUserId,
+                    taskName: task.taskName,
+                    dueDate: task.dueDate,
+                    completion: true
+                }
+                editSingleTask(taskToEdit, updatedTaskEntry)
+                .then(getAllTasks)
+                .then(response => {
+                    const container = document.querySelector(".contentContainer")
+                    container.innerHTML = "<h2>Tasks</h2>"
+                    renderTasks(response)
+                })
+            })
+    }
+}
+
+
 
 
