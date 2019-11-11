@@ -10,6 +10,9 @@
 
 // console.log(message)
 
+
+//Trey's Events Stuff
+
 import API from "./events/APIManager"
 import DOM from "./events/domManager"
 
