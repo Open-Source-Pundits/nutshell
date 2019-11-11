@@ -110,7 +110,8 @@ export const editTask = () => {
 
                     }
                 })
-            })
+            }
+        )
     }
 }
 
