@@ -18,6 +18,15 @@ body {
 	border: 1px solid seaShell;
 }
 
+/* Pages Container */
+.contentContainer {
+	border-right: 1px seagreen solid;
+}
+
+.formContainer {
+	padding-top: 30px;
+}
+
 /* Landing */
 .landingSectionContainer {
 	display: grid;
@@ -51,15 +60,4 @@ body {
 .flexCenter{
 	display: flex;
 	justify-content: space-between;
-}
-
-.contentContainer, .formContainer {
-	flex-basis: 40%;
-	border: 1px seagreen solid;
-	padding: 10px 20px;
-	margin: 10px;
-}
-
-.sideNav {
-	flex-basis: 20%;
 }
