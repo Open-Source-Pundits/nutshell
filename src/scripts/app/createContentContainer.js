@@ -9,17 +9,17 @@ export default currPage => {
 	let navLinks = "";
 
 	pages.map(page => {
-		if (page === currPage) navLinks += `<p class="navLink disabled"${page}</p>`;
+		if (page === currPage) return navLinks += `<p class="navLink disabled">${page}</p>`;
 		navLinks += createNavLink(page);
 	});
 
 	return `
 		<div class="flex center">
-			<nav class="sideNav shadow-3 pa4 mt4">${navLinks}</nav>
-			<div class="contentContainer ma3 pl3">
+			<nav class="sideNav w-20 shadow-3 pa5 mt4">${navLinks}</nav>
+			<div class="contentContainer w-40 ma3 pl3">
 				<h2 class="pageTitle">${currPage}</h2>
 			</div>
-			<div class="formContainer"></div>
+			<div class="formContainer w-40"></div>
 		</div>
 	`;
 };
