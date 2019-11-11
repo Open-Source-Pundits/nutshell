@@ -55,9 +55,9 @@ export const deleteTask = () => {
 export const completeTask = () => {
     if (event.target.id.startsWith("taskCheckbox--")) {
         // Extract entry id from the checkbox's id attribute
-        const taskToEdit = event.target.id.split("--")[1]
-        console.log(taskToEdit)
-        getSingleTask(taskToEdit)
+        const taskToComplete = event.target.id.split("--")[1]
+        console.log(taskToComplete)
+        getSingleTask(taskToComplete)
             .then(task => {
                 // change the completion property to "true"
                 const updatedTaskEntry = {
@@ -66,14 +66,30 @@ export const completeTask = () => {
                     dueDate: task.dueDate,
                     completion: true
                 }
-                editSingleTask(taskToEdit, updatedTaskEntry)
-                .then(getAllTasks)
-                .then(response => {
-                    const container = document.querySelector(".contentContainer")
-                    container.innerHTML = "<h2>Tasks</h2>"
-                    renderTasks(response)
-                })
+                editSingleTask(taskToComplete, updatedTaskEntry)
+                    .then(getAllTasks)
+                    .then(response => {
+                        const container = document.querySelector(".contentContainer")
+                        container.innerHTML = "<h2>Tasks</h2>"
+                        renderTasks(response)
+                    })
             })
+    }
+}
+
+export const editTask = () => {
+    if (event.target.id.startsWith("task--")) {
+        // Extract entry id from the checkbox's id attribute
+        const taskToEdit = event.target.id.split("--")[1]
+        getSingleTask(taskToEdit)
+            .then(task => {
+                const taskNameContainer = document.querySelector(`#taskNameContainer--${taskToEdit}`)
+                taskNameContainer.innerHTML = `            <input type="text" name="name-input" id="taskNameEdit--${task.id}">
+                `
+                console.log(task.taskName)
+                document.querySelector(`#taskNameEdit--${taskToEdit}`).value = task.taskName
+            })
+        console.log(taskToEdit)
     }
 }
 

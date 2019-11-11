@@ -4,7 +4,7 @@ Purpose: To render the html to the DOM and add event listeners
 */
 
 import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
-import { postTask, deleteTask, completeTask } from "./eventHandlers"
+import { postTask, deleteTask, completeTask, editTask } from "./eventHandlers"
 
 // loop through tasks and add them to the DOM
 export const renderTasks = (tasks) => {
@@ -44,4 +44,9 @@ export const attachEventListenerToDeleteTaskButton = () => {
 export const attachEventListenerToCheckBox = () => {
   const container = document.querySelector(".contentContainer")
   container.addEventListener("change", completeTask)
+}
+
+export const attachEventListenerToTaskName = () => {
+  const container = document.querySelector(".contentContainer")
+  container.addEventListener("click", editTask)
 }
