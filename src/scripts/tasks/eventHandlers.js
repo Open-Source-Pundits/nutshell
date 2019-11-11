@@ -1,6 +1,6 @@
 /*
 Author: Lauren Riddle
-Purpose: To create event handlers that POST and DELETE a task
+Purpose: To create event handlers that POST, PUT, and DELETE a task
 */
 
 import { saveNewTask, getAllTasks, deleteSingleTask, getSingleTask, editSingleTask } from "./APIManager"
@@ -51,6 +51,7 @@ export const deleteTask = () => {
     }
 }
 
+// this function performs a PUT on the task that will changed the completed property to True when the checkbox is checked
 export const completeTask = () => {
     if (event.target.id.startsWith("taskCheckbox--")) {
         // Extract entry id from the checkbox's id attribute
@@ -58,6 +59,7 @@ export const completeTask = () => {
         console.log(taskToEdit)
         getSingleTask(taskToEdit)
             .then(task => {
+                // change the completion property to "true"
                 const updatedTaskEntry = {
                     userId: activeUserId,
                     taskName: task.taskName,

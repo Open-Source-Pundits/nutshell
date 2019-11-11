@@ -40,6 +40,7 @@ export const attachEventListenerToDeleteTaskButton = () => {
   container.addEventListener("click", deleteTask)
 }
 
+// attach event listener to the checkbox and call completeTask upon the box being checked
 export const attachEventListenerToCheckBox = () => {
   const container = document.querySelector(".contentContainer")
   container.addEventListener("change", completeTask)

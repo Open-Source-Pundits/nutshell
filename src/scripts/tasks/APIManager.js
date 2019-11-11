@@ -32,7 +32,7 @@ export const deleteSingleTask = (taskId) => {
     .then(response => response.json())
 }
 
-
+// PUT a single task to the API
 export const editSingleTask = (taskId, task) => {
   return fetch(`${baseURL}tasks/${taskId}`, {
         method: "PUT",
@@ -44,6 +44,7 @@ export const editSingleTask = (taskId, task) => {
     .then(response => response.json())
 }
 
+// GET a single task from the API
 export const getSingleTask = (taskId) => {
   return fetch(`${baseURL}tasks/${taskId}`)
       .then(response => response.json())
