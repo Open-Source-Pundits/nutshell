@@ -2,6 +2,9 @@
 // Handle landing page events
 import { renderContentContainer } from "../app/domManager";
 import events from "../events/mainEvents.js"
+import { getAllTasks } from "../tasks/APIManager";
+import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton } from "../tasks/domManager";
+import { createNewTaskButton } from "../tasks/createForm";
 
 const capitalizeWord = word => `${word[0].toUpperCase()}${word.slice(1)}`;
 
@@ -11,4 +14,15 @@ export const handleFooterClick = page => {
         events.callEvents()
     }
     renderContentContainer(capitalizeWord(page))
+    renderContentContainer(capitalizeWord(page))
+    if (page === "tasks") {
+
+        getAllTasks()
+        .then(response => renderTasks(response))
+        createNewTaskButton()
+        attachEventListenerToCreateNewTaskButton()
+        attachEventListenerToDeleteTaskButton()
+        // this is where your event handler for loading the tasks page goes.
+    }
+
 };
