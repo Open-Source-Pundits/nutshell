@@ -33,9 +33,9 @@ messagesGetCall: ()=>{
     .then(entries => this.addHTML(entries))
 }
 
-const messageSubmit = document.querySelector(".submitMessageButton")
-messageSubmit.addEventListener("click", event=>{
-    saveMessageHandler.saveMessageHandler(event)
-})
+// const messageSubmit = document.querySelector(".submitMessageButton")
+// messageSubmit.addEventListener("click", event=>{
+//     saveMessageHandler.saveMessageHandler(event)
+// })
 
 

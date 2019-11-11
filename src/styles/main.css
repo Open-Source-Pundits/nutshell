@@ -46,3 +46,20 @@ body {
 	font-style: italic;
 	padding-top: 10px;
 }
+
+/* Tasks Page */
+.flexCenter{
+	display: flex;
+	justify-content: space-between;
+}
+
+.contentContainer, .formContainer {
+	flex-basis: 40%;
+	border: 1px seagreen solid;
+	padding: 10px 20px;
+	margin: 10px;
+}
+
+.sideNav {
+	flex-basis: 20%;
+}
