@@ -13,9 +13,14 @@ export default {
             <button type="submit" id="submitMessageButton">Submit Message</button>
         `
     },
-    makeMessageEntryComponent:(entry) => {
+    makeMessageComponent: (entry) => {
         return ` 
         <h3 class="messages-${entry.id}">${entry.user.username} said: ${entry.message}</h3>
+        `
+    },
+    newFormMessageButton: () => {
+        return `
+        <button type="submit" id="newFormMessageButton">New Message</button>
         `
     }
 }

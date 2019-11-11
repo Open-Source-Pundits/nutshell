@@ -1,12 +1,12 @@
 // Author: Manila Bui
 // Handle landing page events
-import messages from "../messages/domManager.js"
 import { renderContentContainer } from "../app/domManager";
 import { renderNewsPage } from "../news/domManager";
 import events from "../events/mainEvents.js"
 import { getAllTasks } from "../tasks/APIManager";
 import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton } from "../tasks/domManager";
 import { createNewTaskButton } from "../tasks/createForm";
+import { renderMessagePage } from "../messages/domManager"
 
 const capitalizeWord = word => `${word[0].toUpperCase()}${word.slice(1)}`;
 
@@ -25,5 +25,8 @@ export const handleFooterClick = (id, page) => {
         attachEventListenerToCreateNewTaskButton(id)
         attachEventListenerToDeleteTaskButton()
         // this is where your event handler for loading the tasks page goes.
+    }
+    if (page === "messages"){
+        renderMessagePage()
     }
 };
