@@ -4,7 +4,7 @@ Purpose: To create event handlers that POST, PUT, and DELETE a task
 */
 
 import { saveNewTask, getAllTasks, deleteSingleTask, getSingleTask, editSingleTask } from "./APIManager"
-import { renderTasks, attachEventListenerToCreateNewTaskButton } from "./domManager"
+import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToTaskName, attachEventListenerToNameInput } from "./domManager"
 import { createNewTaskButton } from "./createForm"
 const activeUser = sessionStorage.getItem("activeUser")
 const activeUserId = parseInt(activeUser)
@@ -77,6 +77,9 @@ export const completeTask = () => {
     }
 }
 
+const saveTaskNameEdit = () => {
+
+}
 export const editTask = () => {
     if (event.target.id.startsWith("task--")) {
         // Extract entry id from the checkbox's id attribute
@@ -86,12 +89,32 @@ export const editTask = () => {
                 const taskNameContainer = document.querySelector(`#taskNameContainer--${taskToEdit}`)
                 taskNameContainer.innerHTML = `            <input type="text" name="name-input" id="taskNameEdit--${task.id}">
                 `
-                console.log(task.taskName)
                 document.querySelector(`#taskNameEdit--${taskToEdit}`).value = task.taskName
+
+                const nameInput = document.querySelector(`#taskNameEdit--${taskToEdit}`)
+                nameInput.addEventListener("keypress", event => {
+                    if (event.charCode === 13) {
+                        const nameInputValue = document.querySelector(`#taskNameEdit--${taskToEdit}`).value
+                        const updatedTask = {
+                            userId: activeUserId,
+                            taskName: nameInputValue,
+                            dueDate: task.dueDate,
+                            completion: false
+                        }
+                        editSingleTask(taskToEdit, updatedTask)
+                            .then(getAllTasks)
+                            .then(response => {
+                                const container = document.querySelector(".contentContainer")
+                                container.innerHTML = "<h2>Tasks</h2>"
+                                renderTasks(response)
+                            })
+
+                    }
+                })
             })
-        console.log(taskToEdit)
     }
 }
+
 
 
 

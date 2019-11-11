@@ -4,7 +4,7 @@ Purpose: To render the html to the DOM and add event listeners
 */
 
 import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
-import { postTask, deleteTask, completeTask, editTask } from "./eventHandlers"
+import { postTask, deleteTask, completeTask, editTask, saveTaskNameEdit } from "./eventHandlers"
 
 // loop through tasks and add them to the DOM
 export const renderTasks = (tasks) => {
