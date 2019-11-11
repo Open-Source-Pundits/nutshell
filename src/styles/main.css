@@ -1,0 +1,48 @@
+/* App */
+body {
+	font-family: Avenir, sans-serif;
+	margin: 0;
+	background: aliceBlue;
+}
+
+.topNav {
+	background: seaGreen;
+	color: seaShell;
+}
+
+.logo, .userGreeting {
+	padding: 20px;
+}
+
+.logo {
+	border: 1px solid seaShell;
+}
+
+/* Landing */
+.landingSectionContainer {
+	display: grid;
+	grid-template-rows: 30px auto 30px;
+	border: 1px solid seaGreen;
+	padding: 10px;
+	margin: 15px;
+	margin-bottom: 30px;
+	height: 250px;
+}
+
+.landingSectionContainer-messages {
+	height: 530px;
+}
+
+.landingSectionHeader {
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.landingSectionHeader, .landingContentContainer {
+	border-bottom: 1px solid seaGreen;
+}
+
+.landingSectionFooter {
+	font-style: italic;
+	padding-top: 10px;
+}

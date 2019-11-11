@@ -1,11 +1,11 @@
-import HTMLforms from "./createForm.js"
-import eventHandlers from "./eventHandlers"
+import HTMLforms from "../events/createForm.js"
+import eventHandlers from "../events/eventHandlers"
 
 export default {
 
     putEventFormOnDOM() {
 
-        const eventFormContainer = document.querySelector("#formContainer")
+        const eventFormContainer = document.querySelector(".formContainer")
 
         eventFormContainer.innerHTML = HTMLforms.eventsFormHTML()
         
@@ -17,7 +17,7 @@ export default {
     },
     putEventsOnDOM(response) {
 
-        const eventsContainer = document.querySelector("#eventsContainer")
+        const eventsContainer = document.querySelector(".contentContainer")
 
         let eventsHTML = ""
 

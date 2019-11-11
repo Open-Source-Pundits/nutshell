@@ -1,5 +1,5 @@
-import API from "./APIManager.js"
-import DOM from "./domManager.js"
+import API from "../events/APIManager.js"
+import DOM from "../events/domManager.js"
 
 export default {
 
