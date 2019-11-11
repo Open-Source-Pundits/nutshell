@@ -8,13 +8,13 @@ export default {
         return fetch(`${baseurl}/messages?_expand=user`)
             .then(Response => Response.json())
     },
-    saveMessages(){
+    saveMessages(message){
         return fetch(`${baseurl}/messages`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify()
+            body: JSON.stringify(message)
         })
     }
 }
