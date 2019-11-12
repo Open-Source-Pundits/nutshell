@@ -9,6 +9,7 @@ export default {
         API.getEvents()
             .then(DOM.putEventsOnDOM)
             .then(DOM.putNewEventButtonOnDOM)
+            .then(DOM.delete)
 
     }
 }

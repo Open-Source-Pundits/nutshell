@@ -1,5 +1,9 @@
 import HTMLforms from "../events/createForm.js"
 import eventHandlers from "../events/eventHandlers"
+
+
+//move these
+import API from "../events/APIManager.js"
 //Puts new event form on DOM (triggered by putNewEventButtonOnDOM())
 
 const putEventFormOnDOM = () => {
@@ -33,5 +37,12 @@ export default {
         const newEventButton = document.querySelector("#newEventButton")
         newEventButton.addEventListener("click", () => putEventFormOnDOM())
 
+    },
+    delete() {
+
+        const deleteButtons = document.querySelector(".contentContainer")
+
+        deleteButtons.addEventListener("click", event => eventHandlers.attachEventDeleteButton())
+        
     }
 }

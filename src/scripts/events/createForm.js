@@ -32,6 +32,10 @@ export default {
                 <h3>Name of Event: ${allEvents.name}</h3>
                 <p>Event Date: ${allEvents.date}</p>
                 <p>Location: ${allEvents.location}</p>
+                <button class="allDeleteButtons" id="deleteButton--${allEvents.id} ">
+                Delete
+                </button>
+            </div>
         `
        
     },
@@ -40,4 +44,5 @@ export default {
         <button class="eventFormFieldset" type="button" id="newEventButton">New Event</button>
         `
     }
+
 }

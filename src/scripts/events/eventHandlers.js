@@ -28,6 +28,15 @@ export default {
             .then(API.getEvents)
             .then(DOM.putEventsOnDOM)
 
-    }
+    },
+    attachEventDeleteButton() {
 
+        if (event.target.id.startsWith("deleteButton--")) {
+            const entryToDelete = event.target.id.split("--")[1]
+
+            API.deleteEntry(entryToDelete)
+                .then(API.getEvents)
+                .then(DOM.putEventsOnDOM)
+        }
+    }
 }

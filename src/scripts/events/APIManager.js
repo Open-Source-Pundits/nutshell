@@ -15,7 +15,6 @@ export default {
     //POST to add new event for active user
 
     newEvent(event) {
-        console.log(event)
         return fetch(baseUrl, {
             method: "POST",
             headers: {
@@ -23,6 +22,12 @@ export default {
             },
             body: JSON.stringify(event)
 
+        })
+            .then(response => response.json())
+    },
+    deleteEntry(entryID) {
+        return fetch(`${baseUrl}/${entryID}`, {
+            method: "DELETE"
         })
     }
 }
