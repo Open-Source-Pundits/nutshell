@@ -22,12 +22,15 @@ export default {
     //Puts all events of active user on DOM
 
     putEventsOnDOM(response) {
+        response.sort(function(a, b){
+            let dateA=new Date(a.date), dateB=new Date(b.date)
+            return dateA-dateB //sort by date ascending
+        })
         const eventsContainer = document.querySelector(".contentContainer")
         let eventsHTML = ""
         for (let entry of response) {
             eventsHTML += HTMLforms.eventsHTML(entry)
         }
-
         eventsContainer.innerHTML = eventsHTML
     },
 

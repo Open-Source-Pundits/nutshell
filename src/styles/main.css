@@ -64,3 +64,9 @@ body {
 	flex-basis: 20%;
 	margin: 20px;
 }
+
+/*Events*/
+
+.eventOnDOM:first-of-type {
+	background-color: gray;
+}
