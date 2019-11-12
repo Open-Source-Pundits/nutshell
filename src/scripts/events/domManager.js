@@ -19,12 +19,12 @@ const putEventFormOnDOM = () => {
 
 export default {
 
-    //Puts all events of active user on DOM
+    //Puts all events of active user on DOM in order by date
 
     putEventsOnDOM(response) {
         response.sort(function(a, b){
             let dateA=new Date(a.date), dateB=new Date(b.date)
-            return dateA-dateB //sort by date ascending
+            return dateA-dateB
         })
         const eventsContainer = document.querySelector(".contentContainer")
         let eventsHTML = ""
