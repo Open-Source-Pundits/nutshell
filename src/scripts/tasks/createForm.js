@@ -6,11 +6,13 @@ export const makeTaskComponent = (tasks) => {
     // Create HTML structure for a task
     return `
       <section>
+        <div id="taskNameContainer--${tasks.id}">
         <h3 id="task--${tasks.id}">${tasks.taskName}</h3>
+        </div>
         <p>Due Date: ${tasks.dueDate}</p>
         <label>Completed:</label><input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}">
         <button id="deleteButton--${tasks.id}">Delete</button>
-        </section>
+    </section>
     `
 }
 
