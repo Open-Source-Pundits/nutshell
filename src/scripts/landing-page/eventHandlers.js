@@ -14,7 +14,7 @@ export const handleFooterClick = (id, page) => {
     renderContentContainer(capitalizeWord(page));
 
     if (page === "events") {
-        events.callEvents()
+        events.callEvents(id)
     }
     if (page === "news") renderNewsPage(id);
     if (page === "tasks") {
