@@ -5,6 +5,7 @@ import { handleFooterClick } from "./eventHandlers";
 
 // Executed by renderApp
 export const renderLanding = id => {
+	
 	const mainContainer = document.querySelector(".mainContainer");
 
 	mainContainer.innerHTML = createLanding();
