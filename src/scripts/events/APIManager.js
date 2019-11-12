@@ -1,4 +1,6 @@
 
+//Author: Trey Suiter
+
 const baseUrl = "http://localhost:8088/events"
 
 export default {
@@ -26,6 +28,7 @@ export default {
             .then(response => response.json())
     },
     deleteEntry(entryID) {
+        
         return fetch(`${baseUrl}/${entryID}`, {
             method: "DELETE"
         })

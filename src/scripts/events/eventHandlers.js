@@ -1,3 +1,5 @@
+//Author: Trey Suiter
+
 import API from "../events/APIManager.js"
 import DOM from "../events/domManager.js"
 const activeUser = sessionStorage.getItem("activeUser")
@@ -37,6 +39,8 @@ export default {
             API.deleteEntry(entryToDelete)
                 .then(API.getEvents)
                 .then(DOM.putEventsOnDOM)
+                .then(DOM.putNewEventButtonOnDOM)
+                .then(DOM.delete)
         }
     }
 }

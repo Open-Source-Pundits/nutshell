@@ -1,3 +1,5 @@
+//Author: Trey Suiter
+
 import HTMLforms from "../events/createForm.js"
 import eventHandlers from "../events/eventHandlers"
 
@@ -42,7 +44,7 @@ export default {
 
         const deleteButtons = document.querySelector(".contentContainer")
 
-        deleteButtons.addEventListener("click", event => eventHandlers.attachEventDeleteButton())
+        deleteButtons.addEventListener("click", () => eventHandlers.attachEventDeleteButton())
         
     }
 }

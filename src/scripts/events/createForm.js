@@ -1,3 +1,4 @@
+//Author: Trey Suiter
 
 export default {
 

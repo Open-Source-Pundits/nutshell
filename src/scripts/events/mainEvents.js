@@ -1,3 +1,5 @@
+//Author: Trey Suiter
+
 //Put active user events and new form button on DOM
 
 import API from "../events/APIManager.js"
