@@ -7,6 +7,8 @@ export const renderNewsPage = () => {
 	const contentContainer = document.querySelector(".contentContainer");
 	const formContainer = document.querySelector(".formContainer");
 	
+	// need to make a get request to grab all articles with this user id.
+
 	contentContainer.innerHTML += createArticle();
 	formContainer.innerHTML = "<div class='newArticleFormLink dim pointer'>+ Create new article</div>";
 };

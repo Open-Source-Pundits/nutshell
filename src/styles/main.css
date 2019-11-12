@@ -19,12 +19,18 @@ body {
 }
 
 /* Pages Container */
+.sideNav {
+	width: 15%;
+}
+
 .contentContainer {
 	border-right: 1px seagreen solid;
+	width: 42.5%;
 }
 
 .formContainer {
 	padding-top: 30px;
+	width: 42.5%;
 }
 
 /* Landing */
