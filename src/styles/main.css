@@ -69,4 +69,6 @@ body {
 
 .eventOnDOM:first-of-type {
 	background-color: gray;
+	font-weight: bold;
+	font-size: 120%;
 }
