@@ -16,9 +16,10 @@ const putEventFormOnDOM = () => {
     saveButton.addEventListener("click", () => eventHandlers.attachEventSaveButton())
 }
 
-//Puts all events of active user on DOM
 
 export default {
+
+    //Puts all events of active user on DOM
 
     putEventsOnDOM(response) {
         const eventsContainer = document.querySelector(".contentContainer")
@@ -40,6 +41,9 @@ export default {
         newEventButton.addEventListener("click", () => putEventFormOnDOM())
 
     },
+
+    // Attaches event listener to delete button with attachEventDeleteButton
+
     delete() {
 
         const deleteButtons = document.querySelector(".contentContainer")
