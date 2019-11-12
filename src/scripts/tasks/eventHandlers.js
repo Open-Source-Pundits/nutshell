@@ -4,7 +4,7 @@ Purpose: To create event handlers that POST, PUT, and DELETE a task
 */
 
 import { saveNewTask, getAllTasks, deleteSingleTask, getSingleTask, editSingleTask } from "./APIManager"
-import { renderTasks, attachEventListenerToCreateNewTaskButton } from "./domManager"
+import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToTaskName, attachEventListenerToNameInput } from "./domManager"
 import { createNewTaskButton } from "./createForm"
 const activeUser = sessionStorage.getItem("activeUser")
 const activeUserId = parseInt(activeUser)
@@ -55,9 +55,9 @@ export const deleteTask = () => {
 export const completeTask = () => {
     if (event.target.id.startsWith("taskCheckbox--")) {
         // Extract entry id from the checkbox's id attribute
-        const taskToEdit = event.target.id.split("--")[1]
-        console.log(taskToEdit)
-        getSingleTask(taskToEdit)
+        const taskToComplete = event.target.id.split("--")[1]
+        console.log(taskToComplete)
+        getSingleTask(taskToComplete)
             .then(task => {
                 // change the completion property to "true"
                 const updatedTaskEntry = {
@@ -66,16 +66,55 @@ export const completeTask = () => {
                     dueDate: task.dueDate,
                     completion: true
                 }
-                editSingleTask(taskToEdit, updatedTaskEntry)
-                .then(getAllTasks)
-                .then(response => {
-                    const container = document.querySelector(".contentContainer")
-                    container.innerHTML = "<h2>Tasks</h2>"
-                    renderTasks(response)
-                })
+                editSingleTask(taskToComplete, updatedTaskEntry)
+                    .then(getAllTasks)
+                    .then(response => {
+                        const container = document.querySelector(".contentContainer")
+                        container.innerHTML = "<h2>Tasks</h2>"
+                        renderTasks(response)
+                    })
             })
     }
 }
+
+// this function allows the user to click on the task name, edit it, push enter, and PUT the edited entry to the API, and then reload the tasks
+export const editTask = () => {
+    if (event.target.id.startsWith("task--")) {
+        // Extract entry id from the checkbox's id attribute
+        const taskToEdit = event.target.id.split("--")[1]
+        getSingleTask(taskToEdit)
+            .then(task => {
+                const taskNameContainer = document.querySelector(`#taskNameContainer--${taskToEdit}`)
+                taskNameContainer.innerHTML = `            <input type="text" name="name-input" id="taskNameEdit--${task.id}">
+                `
+                document.querySelector(`#taskNameEdit--${taskToEdit}`).value = task.taskName
+
+                const nameInput = document.querySelector(`#taskNameEdit--${taskToEdit}`)
+                // attach event listener to the name input box and when enter is pressed, perform a PUT and GET to API
+                nameInput.addEventListener("keypress", event => {
+                    if (event.charCode === 13) {
+                        const nameInputValue = document.querySelector(`#taskNameEdit--${taskToEdit}`).value
+                        const updatedTask = {
+                            userId: activeUserId,
+                            taskName: nameInputValue,
+                            dueDate: task.dueDate,
+                            completion: false
+                        }
+                        editSingleTask(taskToEdit, updatedTask)
+                            .then(getAllTasks)
+                            .then(response => {
+                                const container = document.querySelector(".contentContainer")
+                                container.innerHTML = "<h2>Tasks</h2>"
+                                renderTasks(response)
+                            })
+
+                    }
+                })
+            }
+        )
+    }
+}
+
 
 
 

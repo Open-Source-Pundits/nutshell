@@ -4,7 +4,7 @@ import { renderContentContainer } from "../app/domManager";
 import { renderNewsPage } from "../news/domManager";
 import events from "../events/mainEvents.js"
 import { getAllTasks } from "../tasks/APIManager";
-import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton, attachEventListenerToCheckBox } from "../tasks/domManager";
+import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton, attachEventListenerToCheckBox, attachEventListenerToTaskName } from "../tasks/domManager";
 import { createNewTaskButton } from "../tasks/createForm";
 
 const capitalizeWord = word => `${word[0].toUpperCase()}${word.slice(1)}`;
@@ -24,6 +24,7 @@ export const handleFooterClick = (id, page) => {
         attachEventListenerToCreateNewTaskButton(id)
         attachEventListenerToDeleteTaskButton()
         attachEventListenerToCheckBox()
+        attachEventListenerToTaskName()
         // this is where your event handler for loading the tasks page goes.
     }
 };
