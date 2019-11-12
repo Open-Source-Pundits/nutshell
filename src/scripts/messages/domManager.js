@@ -7,47 +7,40 @@ import messageHandler from "../messages/eventHandlers.js"
 let messagesEntries = ""
 
 
-const addHTML = (messages) => {
+export const addHTML = (messages) => {
     let contentContainer = document.querySelector(".contentContainer")
     messagesEntries = ""
     for (let i = 0; i < messages.length; i++) {
         messagesEntries = messages[i];
-        contentContainer.innerHTML += createForm.makeMessageComponent(messagesEntries)
+        contentContainer.innerHTML += createForm.makeMessageComponent
+            (messagesEntries)
     }
 
 }
-export const createNewMessage = () => {
-    return {
-        "userId": userId,
-        "message": message,
-        "timestamp": timestamp
-    }
-}
+
 export const renderMessagePage = () => {
+    
     const messagesGetCall = () => {
         APIManager.getMessages()
             .then(messages => addHTML(messages))
-
+    
     }
+
     const newMessageButton = () => {
         let formContainer = document.querySelector(".formContainer")
-        console.log(formContainer)
         formContainer.innerHTML = createForm.newFormMessageButton()
     }
 
     messagesGetCall();
     newMessageButton();
 
-
-    const newMessageForm = document.querySelector(".formContainer")
+    const newMessageForm = document.querySelector("#newFormMessageButton")
     newMessageForm.addEventListener("click", event => {
         console.log("click")
-        messageHandler.newFormHTML()
+        messageHandler.fillFormHTML()
     })
-    // const messageSubmit = document.querySelector(".formContainer")
-    // messageSubmit.addEventListener("click", event => {
-    //     messageHandler.saveMessageHandler(event)
-    // })
+
+
 }
 
 

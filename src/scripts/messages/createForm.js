@@ -17,6 +17,7 @@ export default {
         return ` 
         <h3 class="messages-${entry.id}">${entry.user.username} said: ${entry.message}</h3>
         `
+//adding a timestamp to the message with  at ${entry.timestamp}
     },
     newFormMessageButton: () => {
         return `
