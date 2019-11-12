@@ -1,12 +1,16 @@
 
-const baseUrl = "http://127.0.0.1:8088/events"
+//Author: Trey Suiter
+
+const baseUrl = "http://localhost:8088/events"
 
 export default {
 
     //fetch call for all event for active user
 
     getEvents() {
-        return fetch(baseUrl)
+        const activeUser = sessionStorage.getItem("activeUser")
+        const activeUserId = parseInt(activeUser)
+        return fetch(`${baseUrl}?userId=${activeUserId}`)
             .then(response => response.json())
     },
 
@@ -20,6 +24,13 @@ export default {
             },
             body: JSON.stringify(event)
 
+        })
+            .then(response => response.json())
+    },
+    deleteEntry(entryID) {
+        
+        return fetch(`${baseUrl}/${entryID}`, {
+            method: "DELETE"
         })
     }
 }
