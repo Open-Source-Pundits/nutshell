@@ -35,6 +35,15 @@ export default {
                 .then(messages => {
                     APIManager.getMessages()
                         .then(messages => addHTML(messages))
+                        //need to implement the sorting function but I time boxed it and will get back to it later
+                        // messages.sort(function(a,b){
+                        //     return a.timestamp - b.timestamp;
+                        // })
+                        // messages[timestamp].sort( a,b){
+                        //     let d1 = new Date(a);
+                        //     let d2 = new Date(b);
+                        //     return d1-d2;
+                        // }
                 })
             messageArray.forEach(messageField => {
                 messageField = ""
