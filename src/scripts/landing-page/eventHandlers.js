@@ -6,6 +6,7 @@ import events from "../events/mainEvents.js"
 import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton, attachEventListenerToCheckBox, attachEventListenerToTaskName } from "../tasks/domManager";
 import { getAllTasks } from "../tasks/APIManager";
 import { createNewTaskButton } from "../tasks/createForm";
+import { renderMessagePage } from "../messages/domManager"
 
 
 const capitalizeWord = word => `${word[0].toUpperCase()}${word.slice(1)}`;
@@ -27,5 +28,8 @@ export const handleFooterClick = (id, page) => {
       attachEventListenerToCheckBox()
       attachEventListenerToTaskName()
         // this is where your event handler for loading the tasks page goes.
+    }
+    if (page === "messages"){
+        renderMessagePage()
     }
 };
