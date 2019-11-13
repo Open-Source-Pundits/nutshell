@@ -9,28 +9,45 @@ const activeUserId = parseInt(activeUser)
 
 export default {
 
+    //Defines function for event form's save button
+
     attachEventSaveButton() {
 
-        // activeUserID = sessionStorage.getItem("activeUser", user.id)
+        //Test for hidden ID to PUT instead if POST
 
-        const saveButtonEvent = document.querySelector("#saveEventButton")
+        let hiddenEntryID = document.querySelector("#hiddenID")
 
-        const eventName = document.querySelector("#eventNameField")
-        const eventDate = document.querySelector("#eventDateField")
-        const eventLocation = document.querySelector("#eventLocationField")
+        if (hiddenEntryID.value) {
 
-        const newEventEntry = {
-            "userId": activeUserId,
-            "name": eventName.value,
-            "date": eventDate.value,
-            "location": eventLocation.value
+            API.editEvent(hiddenEntryID.value)
+                .then(API.getEvents)
+                .then(DOM.putEventsOnDOM)
+                .then(DOM.putNewEventButtonOnDOM)
+
+            // activeUserID = sessionStorage.getItem("activeUser", user.id)
+            
+        } else {
+
+            const eventName = document.querySelector("#eventNameField")
+            const eventDate = document.querySelector("#eventDateField")
+            const eventLocation = document.querySelector("#eventLocationField")
+
+            const newEventEntry = {
+                "userId": activeUserId,
+                "name": eventName.value,
+                "date": eventDate.value,
+                "location": eventLocation.value
+            }
+
+            API.newEvent(newEventEntry)
+                .then(API.getEvents)
+                .then(DOM.putEventsOnDOM)
+                .then(DOM.putNewEventButtonOnDOM)
         }
-
-        API.newEvent(newEventEntry)
-            .then(API.getEvents)
-            .then(DOM.putEventsOnDOM)
-
     },
+
+    //Add delete button to events
+
     attachEventDeleteButton() {
 
         if (event.target.id.startsWith("deleteButton--")) {
@@ -39,8 +56,6 @@ export default {
             API.deleteEntry(entryToDelete)
                 .then(API.getEvents)
                 .then(DOM.putEventsOnDOM)
-                // .then(DOM.putNewEventButtonOnDOM)
-                // .then(DOM.delete)
         }
     }
 }

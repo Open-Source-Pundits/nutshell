@@ -5,12 +5,12 @@ body {
 	background: aliceBlue;
 }
 
-.topNav {
+.topNav, .welcome {
 	background: seaGreen;
 	color: seaShell;
 }
 
-.logo, .userGreeting {
+.logo, .userGreeting, .welcome {
 	padding: 20px;
 }
 
@@ -67,7 +67,24 @@ hr {
 }
 
 /* Tasks Page */
-.flexCenter{
+.flexCenter {
 	display: flex;
 	justify-content: space-between;
+}
+
+.tasksSection {
+	font-size: 11px;
+	margin: 1px;
+}
+
+/*Events*/
+.eventOnDOM:first-of-type {
+	background-color: gray;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.eventsDash {
+	font-size: 11px;
+	margin: 1px;
 }
