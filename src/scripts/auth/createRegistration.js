@@ -1,4 +1,4 @@
-/* 
+/*
 Author: Lauren Riddle
 Purpose: to create HTML for register page
 */
