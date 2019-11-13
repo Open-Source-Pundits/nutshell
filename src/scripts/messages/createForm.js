@@ -15,8 +15,8 @@ export default {
     },
     makeMessageComponent: (entry) => {
         return ` 
-        <div class="messagerContainer--${entry.id}">
-        <h3 class="messages-${entry.id}">${entry.user.username} said: ${entry.message}</h3>
+        <div class="messageContainer-${entry.id}">
+        <h3 id="messages-${entry.id}">${entry.user.username} said: ${entry.message}</h3>
         </div>
         `
 //adding a timestamp to the message with  at ${entry.timestamp}

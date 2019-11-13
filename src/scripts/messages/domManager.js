@@ -3,6 +3,7 @@
 import createForm from "./createForm.js"
 import APIManager from "./APIManager.js"
 import messageHandler from "../messages/eventHandlers.js"
+import edit from "../messages/eventHandlers"
 
 let messagesEntries = ""
 
@@ -30,17 +31,20 @@ export const renderMessagePage = () => {
         let formContainer = document.querySelector(".formContainer")
         formContainer.innerHTML = createForm.newFormMessageButton()
     }
-
+    
     messagesGetCall();
     newMessageButton();
-
+    
     const newMessageForm = document.querySelector("#newFormMessageButton")
     newMessageForm.addEventListener("click", event => {
         console.log("click")
         messageHandler.fillFormHTML()
     })
-
-
+    const editMessageEventListener = () => {
+        const contentContainer = document.querySelector(".contentContainer")
+        contentContainer.addEventListener("click", edit.editMessage)
+    }
+    editMessageEventListener()
 }
 
 

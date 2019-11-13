@@ -20,5 +20,14 @@ export default {
     getSingleMessage(id){
         return fetch(`${baseurl}messages/${id}`)
         .then(response => response.json())
+    },
+    editSingleMessage(id, editedMessage){
+        return fetch(`${baseurl}messages/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedMessage)
+        })
     }
 }
