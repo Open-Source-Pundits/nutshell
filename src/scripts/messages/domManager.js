@@ -9,6 +9,11 @@ let messagesEntries = ""
 
 
 export const addHTML = (messages) => {
+    messages.sort(function(a, b){
+        let d1 = new Date(a.timestamp);
+        let d2 = new Date(b.timestamp);
+        return d1-d2;
+    })
     let contentContainer = document.querySelector(".contentContainer")
     messagesEntries = ""
     for (let i = 0; i < messages.length; i++) {
