@@ -9,7 +9,11 @@ const activeUserId = parseInt(activeUser)
 
 export default {
 
+    //Defines function for event form's save button
+
     attachEventSaveButton() {
+
+        //Test for hidden ID to PUT instead if POST
 
         let hiddenEntryID = document.querySelector("#hiddenID")
 
@@ -21,6 +25,7 @@ export default {
                 .then(DOM.putNewEventButtonOnDOM)
 
             // activeUserID = sessionStorage.getItem("activeUser", user.id)
+            
         } else {
 
             const eventName = document.querySelector("#eventNameField")
@@ -40,6 +45,9 @@ export default {
                 .then(DOM.putNewEventButtonOnDOM)
         }
     },
+
+    //Add delete button to events
+
     attachEventDeleteButton() {
 
         if (event.target.id.startsWith("deleteButton--")) {

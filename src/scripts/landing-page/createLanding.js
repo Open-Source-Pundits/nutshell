@@ -6,7 +6,7 @@ export default () => {
 			<div class="landingCol w-100">
 				<section class="landingSectionContainer landingSectionContainer-events">
 					<header class="landingSectionHeader">Events</header>
-					<div class="landingContentContainer landingContentContainer-events"></div>
+					<div class="landingContentContainer overflow-auto landingContentContainer-events"></div>
 					<footer class="landingSectionFooter dim pointer">+ More events</footer>
 				</section>
 				<section class="landingSectionContainer landingEventsContainer">

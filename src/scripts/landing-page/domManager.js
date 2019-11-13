@@ -4,6 +4,8 @@ import createLanding from "./createLanding";
 import { handleFooterClick } from "./eventHandlers";
 import { getFirstThreeTasks } from "../tasks/APIManager";
 import { makeTaskComponent } from "../tasks/createForm";
+import API from "../events/APIManager.js"
+import HTMLForms from "../events/createForm.js"
 import APIManager from "../messages/APIManager";
 import { dashboardHTML } from "../messages/domManager";
 
@@ -38,6 +40,21 @@ export const renderLanding = id => {
 
 			})
 		})
+
+
+	// display preview of events on landing page
+
+	const eventsContainer = document.querySelector(".landingContentContainer-events")
+	API.getEventsOnDash()
+		.then(events => {
+			let HTMLForAllEvents = ""
+			events.forEach(event => {
+				const eventHTML = HTMLForms.eventsHTML(event, "dash")
+				HTMLForAllEvents += eventHTML
+			})
+			eventsContainer.innerHTML = HTMLForAllEvents
+		})
+
 	
 	// display a preview of messages on landing page JC
 	APIManager.getMessages()
