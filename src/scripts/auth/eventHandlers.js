@@ -30,7 +30,7 @@ export const handleRegistration = () => {
 
 	if (password1 === password2 && email.includes("@")) {
 	postNewUser(userObject)
-	getRegisteredUser(email)
+	.then(getRegisteredUser(email))
 	.then(user => {
 		console.log(user.id)
 		sessionStorage.setItem("activeUser", user.id)
