@@ -34,7 +34,7 @@ body {
 }
 
 hr {
-	border: .5px solid seaGreen;
+	border: .5px dotted seaGreen;
 }
 
 /* Landing */

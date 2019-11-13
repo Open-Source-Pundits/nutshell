@@ -18,7 +18,7 @@ export default currPage => {
 			<nav class="sideNav shadow-3 pa5">${navLinks}</nav>
 			<div class="contentContainer ma3 ph4">
 				<h2 class="pageTitle pb3">${currPage}</h2>
-				<hr/>
+				<hr>
 			</div>
 			<div class="formContainer ph4"></div>
 		</div>
