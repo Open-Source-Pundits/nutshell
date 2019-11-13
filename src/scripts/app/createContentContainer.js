@@ -16,10 +16,11 @@ export default currPage => {
 	return `
 		<div class="flex center">
 			<nav class="sideNav shadow-3 pa5">${navLinks}</nav>
-			<div class="contentContainer ma3 pl4">
-				<h2 class="pageTitle">${currPage}</h2>
+			<div class="contentContainer ma3 ph4">
+				<h2 class="pageTitle pb3">${currPage}</h2>
+				<hr/>
 			</div>
-			<div class="formContainer pl4"></div>
+			<div class="formContainer ph4"></div>
 		</div>
 	`;
 };

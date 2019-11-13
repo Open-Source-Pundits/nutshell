@@ -3,6 +3,6 @@
 import { baseUrl } from "../utils/global.js";
 
 export const getCurrUserArticles = id => {
-	fetch(`${baseUrl}users/${id}?_embed=articles`)
+	return fetch(`${baseUrl}users/${id}?_embed=articles`)
 		.then(r => r.json());
 };

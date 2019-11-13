@@ -24,13 +24,17 @@ body {
 }
 
 .contentContainer {
-	border-right: 1px seagreen solid;
+	border-right: 2.5px seagreen solid;
 	width: 42.5%;
 }
 
 .formContainer {
 	padding-top: 30px;
 	width: 42.5%;
+}
+
+hr {
+	border: .5px solid seaGreen;
 }
 
 /* Landing */
