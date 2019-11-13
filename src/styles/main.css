@@ -65,6 +65,11 @@ body {
 	margin: 20px;
 }
 
+.tasksSection {
+	font-size: 11px;
+	margin: 1px;
+}
+
 /*Events*/
 
 .eventOnDOM:first-of-type {

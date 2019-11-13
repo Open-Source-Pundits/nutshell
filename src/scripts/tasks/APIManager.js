@@ -49,3 +49,11 @@ export const getSingleTask = (taskId) => {
   return fetch(`${baseURL}tasks/${taskId}`)
       .then(response => response.json())
 }
+
+// GET first 3 tasks from API
+export const getFirstThreeTasks = () => {
+  const activeUser = sessionStorage.getItem("activeUser")
+  const activeUserId = parseInt(activeUser)
+  return fetch(`${baseURL}tasks?userId=${activeUserId}&_limit=4`)
+    .then(response => response.json())
+}
