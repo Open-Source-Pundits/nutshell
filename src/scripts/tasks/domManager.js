@@ -3,7 +3,7 @@ Author: Lauren Riddle
 Purpose: To render the html to the DOM and add event listeners
 */
 
-import { makeTaskComponent, buildAndAppendNewTaskForm } from "./createForm"
+import { makeTaskComponent, buildAndAppendNewTaskForm, createNewTaskButton } from "./createForm"
 import { postTask, deleteTask, completeTask, editTask, saveTaskNameEdit } from "./eventHandlers"
 
 // loop through tasks and add them to the DOM
@@ -11,7 +11,7 @@ export const renderTasks = (tasks) => {
   let HtmlForAllTasks = ""
   tasks.forEach(task => {
     if (task.completion !== true) {
-      const taskHtml = makeTaskComponent(task)
+      const taskHtml = makeTaskComponent(task, "tasksPage")
       HtmlForAllTasks += taskHtml
     }
   })
