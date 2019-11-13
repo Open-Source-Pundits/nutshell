@@ -6,3 +6,10 @@ export const getCurrUserArticles = id => {
 	return fetch(`${baseUrl}users/${id}?_embed=articles`)
 		.then(r => r.json());
 };
+
+export const deleteArticle = id => {
+	return fetch(`${baseUrl}articles/${id}`, {
+		method: "DELETE"
+	})
+		.then(r => r.json());
+}

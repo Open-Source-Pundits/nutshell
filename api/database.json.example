@@ -1,53 +1,112 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "username": "Steve",
-            "email": "me@me.com",
-            "password": "password"
-        }
-    ],
-    "articles": [
-        {
-            "id": 1,
-            "userId": 1,
-            "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-            "title": "Wormholes Allow Information to Escape Black Holes",
-            "synopsis": "Check out this recent discovery about workholes",
-            "currentTimestamp": "Fri Nov 08 2019 10:15:44 GMT-0600 (Central Standard Time)"
-        }
-    ],
-    "messages": [
-        {
-            "id": 1,
-            "userId": 1,
-            "message": "What's up?",
-            "timestamp": "Fri Nov 08 2019 10:15:44 GMT-0600 (Central Standard Time)"
-        }
-    ],
-    "events": [
-        {
-            "id": 1,
-            "userId": 1,
-            "name": "Demo Day",
-            "date": "2019-11-8",
-            "location": "Nashville Software School"
-        }
-    ],
-    "tasks": [
-        {
-            "id": 1,
-            "userId": 3,
-            "taskName": "Take out garbage",
-            "dueDate": "2019-11-10",
-            "completion": true
-        }
-    ],
-    "friends": [
-        {
-            "id": 1,
-            "userId": 1,
-            "loggedInUserId": 3
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "Steve",
+      "email": "steve@me.com",
+      "password": "password"
+    },
+    {
+      "id": 2,
+      "username": "Maximus",
+      "email": "maximus@me.com",
+      "password": "password"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Wormholes Allow Information to Escape Black Holes",
+      "synopsis": "Check out this recent discovery about wormholes.",
+      "timestamp": "Fri Nov 08 2019 10:15:44 GMT-0600 (Central Standard Time)"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "url": "https://www.nbc-2.com/story/41302947/florida-man-sues-madonna-for-being-late-to-her-own-concert",
+      "title": "Florida man sues Madonna for being late to her own concert",
+      "synopsis": "He said when he bought the tickets, the show was set to begin at 8:30 but changed to 10:30.",
+      "timestamp": "Mon Nov 11 2019 13:53:32 GMT-0600 (Central Standard Time)"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "url": "https://www.wsmv.com/news/woman-shot-in-the-chest-while-staying-at-gulch-apartment/article_51027660-0468-11ea-9c2e-1f6101eff811.html",
+      "title": "Woman shot in the chest while staying at Gulch apartment",
+      "synopsis": "Police tell us they responded to Velocity in the Gulch apartments on 11th Avenue South and found the victim shot in her upper body.",
+      "timestamp": "Mon Nov 11 2019 15:12:24 GMT-0600 (Central Standard Time)"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "url": "https://www.nbc-2.com/story/41302947/florida-man-sues-madonna-for-being-late-to-her-own-concert",
+      "title": "Florida man sues Madonna for being late to her own concert",
+      "synopsis": "He said when he bought the tickets, the show was set to begin at 8:30 but changed to 10:30.",
+      "timestamp": "Mon Nov 11 2019 13:53:32 GMT-0600 (Central Standard Time)"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "url": "https://www.medicalnewstoday.com/articles/326956.php#1",
+      "title": "How does temperature affect mental health?",
+      "synopsis": "According to a recent study, there is an association between hotter temperatures and an increase both in the number of hospital visits for mental health reasons and in suicide rates.",
+      "timestamp": "Wed Nov 13 2019 14:46:06 GMT-0600 (Central Standard Time)"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "message": "What's up?",
+      "timestamp": "Fri Nov 08 2019 10:15:44 GMT-0600 (Central Standard Time)"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Demo Day",
+      "date": "2019-11-8",
+      "location": "Nashville Software School"
+    },
+    {
+      "userId": 1,
+      "name": "bjoiealjb",
+      "date": "2019-11-13",
+      "location": "bjaeio;bl",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "bjoie",
+      "date": "2019-11-04",
+      "location": "bjaeio;bl",
+      "id": 3
+    }
+  ],
+  "tasks": [
+    {
+      "userId": 1,
+      "taskName": "Blueberries",
+      "dueDate": "2019-11-11",
+      "completion": true,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "taskName": "hepbaiohvaoei",
+      "dueDate": "2019-11-11",
+      "completion": true,
+      "id": 3
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "userId": 1,
+      "loggedInUserId": 3
+    }
+  ]
 }

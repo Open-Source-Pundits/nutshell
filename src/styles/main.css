@@ -23,7 +23,7 @@ body {
 	width: 15%;
 }
 
-.contentContainer {
+.contentContainer-outer {
 	border-right: 2.5px seagreen solid;
 	width: 42.5%;
 }
