@@ -8,9 +8,10 @@ export const postNewUser = (user) => {
         },
         body: JSON.stringify(user)
       })
+      .then(response => response.json())
 }
 
 export const getRegisteredUser = (email) => {
-    return fetch(`http://localhost:8088/users?email=${email}`)
+    return fetch(`${baseURL}users?email=${email}`)
     .then(response => response.json())
 }

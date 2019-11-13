@@ -1,5 +1,10 @@
+/* 
+Author: Lauren Riddle
+Purpose: to create HTML for login page
+*/
+
 // Creates html for login
-export default () => {
+export const createLogin = () => {
 	// TO DO: Create the html for the login, which includes a login button + a link to switch the view to registration for new users.
 	return `
 	<h1 class="welcome">Welcome to Nutshell<h1>
@@ -17,3 +22,4 @@ export default () => {
 <button id="loginButton" class="dim pointer">Login</button>
 	`;
 };
+

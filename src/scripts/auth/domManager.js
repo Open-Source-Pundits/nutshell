@@ -1,7 +1,6 @@
 // Author: Manila Bui
 // Renders html for authorization page + adds event listeners
-import createLogin from "./createLogin";
-import createRegistration from "./createRegistration";
+import { createRegistration, createWelcomePage } from "./createRegistration";
 import { handleLogin, handleRegistration } from "./eventHandlers";
 // TO DO: import event handlers
 
@@ -12,16 +11,15 @@ export const renderLogin = () => {
 
 	const authFormContainer = document.querySelector("div");
 
-	authFormContainer.innerHTML = createLogin();
+	authFormContainer.innerHTML = createWelcomePage();
 
-	const loginButton = document.querySelector("#loginButton")
+	// const loginButton = document.querySelector("#loginButton")
 	
-	loginButton.addEventListener("click", handleLogin)
+	// loginButton.addEventListener("click", handleLogin)
 
 	const registerAccount = document.querySelector(".registerAccount")
 	registerAccount.addEventListener("click", renderRegistration)
 
-	// TO DO: Add event listeners
 };
 
 export const renderRegistration = () => {

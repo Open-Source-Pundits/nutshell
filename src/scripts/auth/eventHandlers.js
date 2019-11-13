@@ -1,4 +1,4 @@
-// Author: Manila Bui
+// Author: Manila Bui, Lauren Riddle
 // All event handlers associated with events on the login + registration forms.
 import { renderRegistration } from "./domManager";
 import { renderApp } from "../app/domManager";
@@ -16,8 +16,11 @@ export const handleLogin = () => {
 
 export const handleSignup = () => renderRegistration();
 
+
+// author: Lauren Riddle
+// this function registers a new user
 export const handleRegistration = () => {
-	// TO DO: Save user to db.
+	// get value of input fields and put them in an object
 	const name = document.querySelector("#name").value
 	const email = document.querySelector("#email").value
 	const password1 = document.querySelector("#password-1").value
@@ -27,12 +30,12 @@ export const handleRegistration = () => {
 		email: email,
 		password: password2
 	}
-
 	if (password1 === password2 && email.includes("@")) {
+		// POST new user and render the app using the user ID to set session storage
 	postNewUser(userObject)
 	.then(getRegisteredUser(email))
 	.then(user => {
-		console.log(user.id)
+		console.log(user)
 		sessionStorage.setItem("activeUser", user.id)
 		renderApp(user.id)
 	})
@@ -41,8 +44,4 @@ export const handleRegistration = () => {
 	} else if (email.includes("@") !== true) {
 		alert("Invalid Email Address")
 	}
-	// TO DO: Fetch call to get the user with email in order to get their id.
-	// Call following 2 functions in the fetch:
-	// sessionStorage.setItem("activeUser", id);
-	// renderApp(id);
 };

@@ -1,6 +1,11 @@
+/* 
+Author: Lauren Riddle
+Purpose: to create HTML for register page
+*/
+
 // Rendered when the button to register is clicked on the login form.
-export default () => {
-	// TO DO: Create registration html, which includes registration button.
+export const createRegistration = () => {
+	// Create registration html, which includes registration button.
 	return `
 	<h1 class="welcome">Register a New Account</h1>
 	<form id="registerForm">
@@ -24,3 +29,11 @@ export default () => {
 	<button id="registerButton" class="dim pointer">Register</button>
 	`;
 };
+
+// creates welcome page
+export const createWelcomePage = () => {
+	return `
+	<h1 class="welcome">Welcome to Nutshell<h1>
+	<div class="registerAccount dim pointer">Register a New Account</div>
+		`;
+}

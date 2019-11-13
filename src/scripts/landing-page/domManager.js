@@ -1,5 +1,9 @@
-// Author: Manila Bui
-// Render landing page html + add event Listeners
+/*
+Authors: Lauren Riddle, Manila Bui
+LR: display a preview of tasks on landing page
+MB: Render landing page html + add event Listeners
+*/
+
 import createLanding from "./createLanding";
 import { handleFooterClick } from "./eventHandlers";
 import { getFirstThreeTasks } from "../tasks/APIManager";
@@ -20,7 +24,7 @@ export const renderLanding = id => {
 		footer.addEventListener("click", () => handleFooterClick(id, currSection));
 	})
 
-
+	// Author: Lauren Riddle
 	// display a preview of tasks on landing page
 	const tasksContainer = document.querySelector(".landingContentContainer-tasks")
 	getFirstThreeTasks()
