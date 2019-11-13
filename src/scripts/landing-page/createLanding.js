@@ -18,7 +18,7 @@ export default () => {
 			<div class="landingCol w-100">
 				<section class="landingSectionContainer landingSectionContainer-messages">
 					<header class="landingSectionHeader">Messages</header>
-					<div class="landingContentContainer landingContentContainer-messages"></div>
+					<div class="landingContentContainer overflow-auto landingContentContainer-messages"></div>
 					<footer class="landingSectionFooter dim pointer">+ More messages</footer>
 				</section>
 			</div>

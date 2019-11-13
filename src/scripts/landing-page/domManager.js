@@ -5,7 +5,6 @@ import { handleFooterClick } from "./eventHandlers";
 import { getFirstThreeTasks } from "../tasks/APIManager";
 import { makeTaskComponent } from "../tasks/createForm";
 import APIManager from "../messages/APIManager";
-import createMessage from "../messages/createForm"
 import { dashboardHTML } from "../messages/domManager";
 
 // Executed by renderApp
