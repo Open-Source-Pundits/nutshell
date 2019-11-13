@@ -54,6 +54,6 @@ export const getSingleTask = (taskId) => {
 export const getFirstThreeTasks = () => {
   const activeUser = sessionStorage.getItem("activeUser")
   const activeUserId = parseInt(activeUser)
-  return fetch(`${baseURL}tasks?userId=${activeUserId}&_limit=4`)
+  return fetch(`${baseURL}tasks?userId=${activeUserId}&_limit=3`)
     .then(response => response.json())
 }

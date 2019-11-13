@@ -10,15 +10,15 @@ export default () => {
 		</section>
 		<section>
 			<label for="email-input">Email:</label>
-			<input type="email" name="email-input" id="email">
+			<input type="email" name="email-input" id="email" required>
 		</section>
 		<section>
 			<label for="password-input-1">Password:</label>
-			<input type="password" name="password-input" id="password-1">
+			<input type="password" name="password-input" id="password-1" required>
 		</section>
 		<section>
 			<label for="password-input-2">Password:</label>
-			<input type="password" name="password-input" id="password-2">
+			<input type="password" name="password-input" id="password-2" required>
 		</section>
 	</form>
 	<button id="registerButton" class="dim pointer">Register</button>
