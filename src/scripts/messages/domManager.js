@@ -41,6 +41,11 @@ export const dashboardHTML = (messages) => {
 export const newMessageButton = () => {
     let formContainer = document.querySelector(".formContainer")
     formContainer.innerHTML = createForm.newFormMessageButton()
+    const newMessageForm = document.querySelector("#newFormMessageButton")
+    newMessageForm.addEventListener("click", event => {
+        console.log("click")
+        messageHandler.fillFormHTML()
+    })
 }
 
 export const renderMessagePage = () => {
@@ -55,11 +60,7 @@ export const renderMessagePage = () => {
     messagesGetCall();
     newMessageButton();
     
-    const newMessageForm = document.querySelector("#newFormMessageButton")
-    newMessageForm.addEventListener("click", event => {
-        console.log("click")
-        messageHandler.fillFormHTML()
-    })
+
     const editMessageEventListener = () => {
         const contentContainer = document.querySelector(".contentContainer")
         contentContainer.addEventListener("click", edit.editMessage)
