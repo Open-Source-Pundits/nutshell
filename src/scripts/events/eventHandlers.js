@@ -11,25 +11,32 @@ export default {
 
     attachEventSaveButton() {
 
-        // activeUserID = sessionStorage.getItem("activeUser", user.id)
+        let hiddenEntryID = document.querySelector("#hiddenID")
 
-        const saveButtonEvent = document.querySelector("#saveEventButton")
+        if (hiddenEntryID.value) {
 
-        const eventName = document.querySelector("#eventNameField")
-        const eventDate = document.querySelector("#eventDateField")
-        const eventLocation = document.querySelector("#eventLocationField")
+            API.editEvent(hiddenEntryID.value)
+                .then(API.getEvents)
+                .then(DOM.putEventsOnDOM)
 
-        const newEventEntry = {
-            "userId": activeUserId,
-            "name": eventName.value,
-            "date": eventDate.value,
-            "location": eventLocation.value
+            // activeUserID = sessionStorage.getItem("activeUser", user.id)
+        } else {
+
+            const eventName = document.querySelector("#eventNameField")
+            const eventDate = document.querySelector("#eventDateField")
+            const eventLocation = document.querySelector("#eventLocationField")
+
+            const newEventEntry = {
+                "userId": activeUserId,
+                "name": eventName.value,
+                "date": eventDate.value,
+                "location": eventLocation.value
+            }
+
+            API.newEvent(newEventEntry)
+                .then(API.getEvents)
+                .then(DOM.putEventsOnDOM)
         }
-
-        API.newEvent(newEventEntry)
-            .then(API.getEvents)
-            .then(DOM.putEventsOnDOM)
-
     },
     attachEventDeleteButton() {
 

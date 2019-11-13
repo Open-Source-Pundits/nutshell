@@ -28,7 +28,7 @@ export default {
             .then(response => response.json())
     },
     deleteEntry(entryID) {
-        
+
         return fetch(`${baseUrl}/${entryID}`, {
             method: "DELETE"
         })
@@ -48,6 +48,31 @@ export default {
                 newDate.value = thisEntry.date
                 newLocation.value = thisEntry.location
             })
+    },
+    editEvent(entryID) {
+
+        const activeUser = sessionStorage.getItem("activeUser")
+        const activeUserId = parseInt(activeUser)
+
+        const updatedObject = {
+            userId: activeUserId,
+            name: document.querySelector("#eventNameField").value,
+            date: document.querySelector("#eventDateField").value,
+            location: document.querySelector("#eventLocationField").value
+        }
+        return fetch(`http://localhost:8088/events/${entryID}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedObject)
+
+        })
+            .then(response => response.json())
+            .then(() => {
+                document.querySelector("#hiddenID").value = ""
+            })
+
     }
 }
 
