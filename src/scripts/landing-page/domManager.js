@@ -4,6 +4,8 @@ import createLanding from "./createLanding";
 import { handleFooterClick } from "./eventHandlers";
 import { getFirstThreeTasks } from "../tasks/APIManager";
 import { makeTaskComponent } from "../tasks/createForm";
+import API from "../events/APIManager.js"
+import HTMLForms from "../events/createForm.js"
 
 // Executed by renderApp
 export const renderLanding = id => {
@@ -35,6 +37,20 @@ export const renderLanding = id => {
 				tasksContainer.innerHTML = HtmlForAllTasks
 
 			})
+		})
+	
+
+	// display preview of events on landing page
+
+	const eventsContainer = document.querySelector(".landingContentContainer-events")
+	API.getEventsOnDash()
+		.then(events => {
+			let HTMLForAllEvents = ""
+			EventSource.forEach(event => {
+				const eventHTML = dashEvents(event, "dash")
+				HTMLForAllEvents += eventHTML
+			})
+			eventsContainer.innerHTML = HTMLForAllEvents
 		})
 
 }

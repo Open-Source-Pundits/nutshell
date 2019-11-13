@@ -82,6 +82,12 @@ export default {
                 document.querySelector("#hiddenID").value = ""
             })
 
-    }
+    },
+    getEventsOnDash () {
+        const activeUser = sessionStorage.getItem("activeUser")
+        const activeUserId = parseInt(activeUser)
+        return fetch(`${baseURL}tasks?userId=${activeUserId}&_limit=4`)
+          .then(response => response.json())
+      }
 }
 
