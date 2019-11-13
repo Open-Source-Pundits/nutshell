@@ -16,17 +16,21 @@ const putEventFormOnDOM = () => {
     saveButton.addEventListener("click", () => eventHandlers.attachEventSaveButton())
 }
 
-//Puts all events of active user on DOM
 
 export default {
 
+    //Puts all events of active user on DOM in order by date
+
     putEventsOnDOM(response) {
+        response.sort(function(a, b){
+            let dateA=new Date(a.date), dateB=new Date(b.date)
+            return dateA-dateB
+        })
         const eventsContainer = document.querySelector(".contentContainer")
         let eventsHTML = ""
         for (let entry of response) {
             eventsHTML += HTMLforms.eventsHTML(entry)
         }
-
         eventsContainer.innerHTML = eventsHTML
     },
 
@@ -40,6 +44,9 @@ export default {
         newEventButton.addEventListener("click", () => putEventFormOnDOM())
 
     },
+
+    // Attaches event listener to delete button with attachEventDeleteButton
+
     delete() {
 
         const deleteButtons = document.querySelector(".contentContainer")
