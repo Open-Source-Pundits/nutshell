@@ -71,6 +71,7 @@ export default {
                     <input type="text" class="messageEdit-${messageToEdit}">
                     `
                     document.querySelector(`.messageEdit-${messageToEdit}`).value = message.message
+                    
                     //now that the text form has been populated I have to target the container to be edited
                     const messageInput = document.querySelector(`.messageEdit-${messageToEdit}`)
                     //putting an event listener to the message so that a input box will appear and when enter is pressed, do a PUT request and then a GET to repopulate the updated info
@@ -81,7 +82,8 @@ export default {
                             
                             const updatedMessage = {
                                 userId: activeUserId,
-                                message: messageInputValue
+                                message: messageInputValue,
+                                timestamp: Date.now()
                             }
                             
                             APIManager.editSingleMessage(messageToEdit, updatedMessage)
