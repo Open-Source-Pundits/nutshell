@@ -38,7 +38,7 @@ export const renderLanding = id => {
 
 			})
 		})
-	
+
 
 	// display preview of events on landing page
 
@@ -46,8 +46,8 @@ export const renderLanding = id => {
 	API.getEventsOnDash()
 		.then(events => {
 			let HTMLForAllEvents = ""
-			EventSource.forEach(event => {
-				const eventHTML = dashEvents(event, "dash")
+			events.forEach(event => {
+				const eventHTML = HTMLForms.eventsHTML(event, "dash")
 				HTMLForAllEvents += eventHTML
 			})
 			eventsContainer.innerHTML = HTMLForAllEvents
