@@ -2,7 +2,7 @@
 // This module will handle all of the events that eventListeners brings to it
 import messageForm from "../messages/createForm"
 import APIManager from "../messages/APIManager"
-import { addHTML } from "./domManager"
+import { addHTML, renderMessagePage, newMessageButton } from "./domManager"
 
 const activeUser = sessionStorage.getItem("activeUser")
 const activeUserId = parseInt(activeUser)
@@ -37,6 +37,7 @@ export default {
                 .then(messages => {
                     APIManager.getMessages()
                         .then(messages => addHTML(messages))
+                        .then(newMessageButton)
                     //need to implement the sorting function but I time boxed it and will get back to it later
                     // messages.sort(function(a,b){
                     //     return a.timestamp - b.timestamp;
@@ -50,6 +51,7 @@ export default {
             messageArray.forEach(messageField => {
                 messageField = ""
             })
+
         })
     },
     editMessage: () => {

@@ -18,6 +18,10 @@ export const addHTML = (messages) => {
     }
 
 }
+export const newMessageButton = () => {
+    let formContainer = document.querySelector(".formContainer")
+    formContainer.innerHTML = createForm.newFormMessageButton()
+}
 
 export const renderMessagePage = () => {
     
@@ -27,10 +31,6 @@ export const renderMessagePage = () => {
     
     }
 
-    const newMessageButton = () => {
-        let formContainer = document.querySelector(".formContainer")
-        formContainer.innerHTML = createForm.newFormMessageButton()
-    }
     
     messagesGetCall();
     newMessageButton();
