@@ -8,6 +8,7 @@ export default {
         return /*html*/`
         <div id="mainEventsDiv">
             <form id="eventsForm">
+                <input id="hiddenID" value="">
                 <fieldset class="eventFormFieldset">
                     <label for "eventNameField">Name of Event:</label>
                     <input class="eventFormField" type="text" name="eventField" id="eventNameField">
@@ -29,13 +30,14 @@ export default {
     },
     eventsHTML(allEvents){
         return `
-            <div class ="eventOnDOM">
+            <div class ="eventOnDOM" id="eventDiv--${allEvents.id}">
                 <h3>Name of Event: ${allEvents.name}</h3>
                 <p>Event Date: ${allEvents.date}</p>
                 <p>Location: ${allEvents.location}</p>
                 <button class="allDeleteButtons" id="deleteButton--${allEvents.id} ">
                 Delete
                 </button>
+                <button class="allEditButtons" id="editButton--${allEvents.id}">Edit</button>
             </div>
         `
        

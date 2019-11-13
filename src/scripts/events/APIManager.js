@@ -32,6 +32,22 @@ export default {
         return fetch(`${baseUrl}/${entryID}`, {
             method: "DELETE"
         })
+    },
+    updateEvent(entryID) {
+
+        const hiddenID = document.querySelector("#hiddenID")
+        const newName = document.querySelector("#eventNameField")
+        const newDate = document.querySelector("#eventDateField")
+        const newLocation = document.querySelector("#eventLocationField")
+
+        return fetch(`http://localhost:8088/events/${entryID}`)
+            .then(response => response.json())
+            .then(thisEntry => {
+                hiddenID.value = thisEntry.id
+                newName.value = thisEntry.name
+                newDate.value = thisEntry.date
+                newLocation.value = thisEntry.location
+            })
     }
 }
 

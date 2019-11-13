@@ -12,6 +12,7 @@ export default {
             .then(DOM.putEventsOnDOM)
             .then(DOM.putNewEventButtonOnDOM)
             .then(DOM.delete)
+            .then(DOM.edit)
 
     }
 }

@@ -39,8 +39,6 @@ export default {
             API.deleteEntry(entryToDelete)
                 .then(API.getEvents)
                 .then(DOM.putEventsOnDOM)
-                // .then(DOM.putNewEventButtonOnDOM)
-                // .then(DOM.delete)
         }
     }
 }
