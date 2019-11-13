@@ -19,7 +19,7 @@ export const makeTaskComponent = (tasks, tasksPage) => {
         <input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}">
         <button id="deleteButton--${tasks.id}">Delete</button>
         </section>`
-    } 
+    }
     // otherwise just load the name and date
     else {
         return `<section class="tasksSection">${singleTaskHtml}</section>`
