@@ -2,18 +2,29 @@
 Author: Lauren Riddle
 Purpose: This module has functions that hold the HTML that will be rendered on the tasks page
 */
-export const makeTaskComponent = (tasks) => {
+export const makeTaskComponent = (tasks, tasksPage) => {
     // Create HTML structure for a task
-    return `
-      <section>
+    let singleTaskHtml =  `
         <div id="taskNameContainer--${tasks.id}">
         <h3 id="task--${tasks.id}">${tasks.taskName}</h3>
         </div>
         <p>Due Date: ${tasks.dueDate}</p>
-        <label>Completed:</label><input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}">
-        <button id="deleteButton--${tasks.id}">Delete</button>
-    </section>
+        
     `
+    // if loading the tasks page, add a checkbox and button
+    if(tasksPage === "tasksPage"){
+        return `<section>
+        ${singleTaskHtml}
+        <label>Completed:</label>
+        <input type="checkbox" name="complete" id="taskCheckbox--${tasks.id}">
+        <button id="deleteButton--${tasks.id}">Delete</button>
+        </section>`
+    } 
+    // otherwise just load the name and date
+    else {
+        return `<section class="tasksSection">${singleTaskHtml}</section>`
+    }
+    
 }
 
 

@@ -11,7 +11,7 @@ export const renderTasks = (tasks) => {
   let HtmlForAllTasks = ""
   tasks.forEach(task => {
     if (task.completion !== true) {
-      const taskHtml = makeTaskComponent(task)
+      const taskHtml = makeTaskComponent(task, "tasksPage")
       HtmlForAllTasks += taskHtml
     }
   })
