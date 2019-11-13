@@ -37,7 +37,7 @@ export default {
                 .then(messages => {
                     APIManager.getMessages()
                     .then(messages => addHTML(messages))
-                    .then(newMessageButton)
+                    .then(newMessageButton())
                     //need to implement the sorting function but I time boxed it and will get back to it later
                     // messages.sort(function(a,b){
                     //     return a.timestamp - b.timestamp;
