@@ -15,3 +15,8 @@ export const getRegisteredUser = (email) => {
     return fetch(`${baseURL}users?email=${email}`)
     .then(response => response.json())
 }
+
+export const getAllUsers = () => {
+  return fetch(`${baseURL}users`)
+  .then(response => response.json())
+}

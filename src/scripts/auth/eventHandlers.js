@@ -2,7 +2,7 @@
 // All event handlers associated with events on the login + registration forms.
 import { renderRegistration } from "./domManager";
 import { renderApp } from "../app/domManager";
-import { postNewUser, getRegisteredUser } from "./APIManager";
+import { postNewUser, getRegisteredUser, getAllUsers } from "./APIManager";
 
 export const handleLogin = () => {
 	// TO DO: Check validity of user with db. If valid, take them to landing page.
@@ -30,18 +30,40 @@ export const handleRegistration = () => {
 		email: email,
 		password: password2
 	}
+
+	// POST new user and render the app using the user ID to set session storage
+
 	if (password1 === password2 && email.includes("@")) {
-		// POST new user and render the app using the user ID to set session storage
-	postNewUser(userObject)
-	.then(getRegisteredUser(email))
-	.then(user => {
-		console.log(user)
-		sessionStorage.setItem("activeUser", user.id)
-		renderApp(user.id)
-	})
+		getAllUsers()
+			.then(users => {
+				console.log(users)
+				let emailArray = []
+				users.forEach(user => {
+					emailArray.push(user.email)
+				});
+				console.log(emailArray)
+
+				for (let i = 0; i < emailArray.length; i++) {
+					if (email === emailArray[i]) {
+						alert("user already has an account")
+					}
+					else {
+						postNewUser(userObject)
+							.then(getRegisteredUser(email))
+							.then(user => {
+								console.log(user)
+								sessionStorage.setItem("activeUser", user.id)
+								renderApp(user.id)
+							})
+					}
+				}
+				// 	if (email !=== user.email) {
+
+				// }
+			})
 	} else if (password2 !== password1) {
 		alert("Passwords do not match")
 	} else if (email.includes("@") !== true) {
 		alert("Invalid Email Address")
 	}
-};
+}
