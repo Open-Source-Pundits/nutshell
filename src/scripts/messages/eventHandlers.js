@@ -76,17 +76,21 @@ export default {
                         // by adding this if statement if the ENTER button is pressed it will execute
                         if (event.charCode === 13) {
                             const messageInputValue = document.querySelector(`.messageEdit-${messageToEdit}`).value
-
+                            
                             const updatedMessage = {
                                 userId: activeUserId,
                                 message: messageInputValue
                             }
-                            let contentContainer = document.querySelector(".contentContainer")
-                            contentContainer.innerHTML = ""
                             
                             APIManager.editSingleMessage(messageToEdit, updatedMessage)
-                            .then(APIManager.getMessages())
-                            .then(messages => addHTML(messages))
+                            .then(APIManager.getMessages)
+                            .then(messages => {
+                                
+                                let contentContainer = document.querySelector(".contentContainer")
+                                contentContainer.innerHTML = ""
+                                addHTML(messages)
+
+                            })
                         }
                     }
                     )
