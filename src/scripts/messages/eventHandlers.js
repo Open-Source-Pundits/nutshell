@@ -2,7 +2,8 @@
 // This module will handle all of the events that eventListeners brings to it
 import messageForm from "../messages/createForm"
 import APIManager from "../messages/APIManager"
-import { addHTML, messagesGetCall } from "./domManager"
+import { addHTML } from "./domManager"
+
 
 
 export default {
@@ -49,6 +50,13 @@ export default {
                 messageField = ""
             })
         })
+    },
+    editMessage:() => {
+        if(event.target.id.startsWith("task--")){
+            const messageToEdit = event.target.id.split("--")[1]
+            APIManager.getSingleMessage(messageToEdit)
+        }
+
     }
 }
 

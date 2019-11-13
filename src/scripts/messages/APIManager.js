@@ -16,5 +16,9 @@ export default {
             },
             body: JSON.stringify(message)
         })
+    },
+    getSingleMessage(id){
+        return fetch(`${baseurl}messages/${id}`)
+        .then(response => response.json())
     }
 }
