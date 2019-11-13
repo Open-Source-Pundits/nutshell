@@ -11,7 +11,7 @@ export default () => {
 				</section>
 				<section class="landingSectionContainer landingEventsContainer">
 					<header class="landingSectionHeader">Tasks</header>
-					<div class="landingContentContainer landingContentContainer-tasks"></div>
+					<div class="landingContentContainer overflow-auto landingContentContainer-tasks"></div>
 					<footer class="landingSectionFooter dim pointer">+ More tasks</footer>
 				</section>
 			</div>

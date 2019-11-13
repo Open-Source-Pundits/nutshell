@@ -1,4 +1,4 @@
-// Author: Manila Bui, James Chapman
+// Author: Manila Bui, James Chapman, Lauren Riddle
 // Render landing page html + add event Listeners
 import createLanding from "./createLanding";
 import { handleFooterClick } from "./eventHandlers";
@@ -24,7 +24,7 @@ export const renderLanding = id => {
 		footer.addEventListener("click", () => handleFooterClick(id, currSection));
 	})
 
-
+	// Author: Lauren Riddle
 	// display a preview of tasks on landing page
 	const tasksContainer = document.querySelector(".landingContentContainer-tasks")
 	getFirstThreeTasks()

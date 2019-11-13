@@ -5,13 +5,14 @@ import { getUser } from "./APIManager";
 import { renderLanding } from "../landing-page/domManager";
 import createApp from "./createApp";
 import createContentContainer from "./createContentContainer";
+import { renderLogin } from "../auth/domManager";
 
 // Executed on main using the activeUser id + after a new user registers.
 export const renderApp = id => {
 	const container = document.querySelector("#container");
 	// If id is 0, login page is rendered since there is no activeUser.
 	!id
-		? (container.innerHTML = createApp(id), renderAuth())
+		? (container.innerHTML = createApp(id), renderLogin())
 		// Otherwise, landing page is rendered.
 		: getUser(id)
 			.then(user => {

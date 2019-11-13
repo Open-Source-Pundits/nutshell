@@ -5,12 +5,12 @@ body {
 	background: aliceBlue;
 }
 
-.topNav {
+.topNav, .welcome {
 	background: seaGreen;
 	color: seaShell;
 }
 
-.logo, .userGreeting {
+.logo, .userGreeting, .welcome {
 	padding: 20px;
 }
 
