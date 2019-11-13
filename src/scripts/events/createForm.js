@@ -28,8 +28,18 @@ export default {
         </div>  
         `
     },
-    eventsHTML(allEvents){
-        return `
+    eventsHTML(allEvents, dashFlag) {
+        if (dashFlag) {
+
+            return `
+        <div class ="eventsDash" id="eventDiv--${allEvents.id}">
+            <h3>Name of Event: ${allEvents.name}</h3>
+            <p>Event Date: ${allEvents.date}</p>
+            <p>Location: ${allEvents.location}</p>
+        </div>`
+        } else {
+
+            return `
             <div class ="eventOnDOM" id="eventDiv--${allEvents.id}">
                 <h3>Name of Event: ${allEvents.name}</h3>
                 <p>Event Date: ${allEvents.date}</p>
@@ -40,9 +50,9 @@ export default {
                 <button class="allEditButtons" id="editButton--${allEvents.id}">Edit</button>
             </div>
         `
-       
+        }
     },
-    newEventButton(){
+    newEventButton() {
         return /*html*/`
         <button class="eventFormFieldset" type="button" id="newEventButton">New Event</button>
         `
