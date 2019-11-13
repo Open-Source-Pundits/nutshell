@@ -27,12 +27,18 @@ export default {
         })
             .then(response => response.json())
     },
+
+    //Fetch call to delete event
+
     deleteEntry(entryID) {
 
         return fetch(`${baseUrl}/${entryID}`, {
             method: "DELETE"
         })
     },
+
+    // Populates form to edit
+
     updateEvent(entryID) {
 
         const hiddenID = document.querySelector("#hiddenID")
@@ -49,6 +55,9 @@ export default {
                 newLocation.value = thisEntry.location
             })
     },
+
+    //POST fetch to save editted event
+
     editEvent(entryID) {
 
         const activeUser = sessionStorage.getItem("activeUser")

@@ -8,7 +8,7 @@ export default {
         return /*html*/`
         <div id="mainEventsDiv">
             <form id="eventsForm">
-                <input id="hiddenID" value="">
+                <input hidden id="hiddenID" value="" >
                 <fieldset class="eventFormFieldset">
                     <label for "eventNameField">Name of Event:</label>
                     <input class="eventFormField" type="text" name="eventField" id="eventNameField">

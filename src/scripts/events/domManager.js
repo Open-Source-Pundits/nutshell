@@ -67,7 +67,6 @@ export default {
             putEventFormOnDOM()
             if (event.target.id.startsWith("editButton--")) {
                 entryID = event.target.id.split("--")[1]
-                console.log("entry ID", entryID)
                 API.updateEvent(entryID)
             }
         })

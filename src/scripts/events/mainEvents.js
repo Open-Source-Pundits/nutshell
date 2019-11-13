@@ -7,6 +7,8 @@ import DOM from "../events/domManager.js"
 
 export default {
 
+    //Calls initial events page
+
     callEvents() {
         API.getEvents()
             .then(DOM.putEventsOnDOM)

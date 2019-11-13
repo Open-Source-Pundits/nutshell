@@ -18,6 +18,7 @@ export default {
             API.editEvent(hiddenEntryID.value)
                 .then(API.getEvents)
                 .then(DOM.putEventsOnDOM)
+                .then(DOM.putNewEventButtonOnDOM)
 
             // activeUserID = sessionStorage.getItem("activeUser", user.id)
         } else {
@@ -36,6 +37,7 @@ export default {
             API.newEvent(newEventEntry)
                 .then(API.getEvents)
                 .then(DOM.putEventsOnDOM)
+                .then(DOM.putNewEventButtonOnDOM)
         }
     },
     attachEventDeleteButton() {
