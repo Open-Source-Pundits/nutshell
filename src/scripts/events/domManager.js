@@ -53,5 +53,22 @@ export default {
 
         deleteButtons.addEventListener("click", () => eventHandlers.attachEventDeleteButton())
         
+    },
+
+    edit() {
+
+        
+
+        const editButtons = document.querySelector(".contentContainer")
+
+        let entryID = ""
+
+        editButtons.addEventListener("click", event => {
+            putEventFormOnDOM()
+            if (event.target.id.startsWith("editButton--")) {
+                entryID = event.target.id.split("--")[1]
+                API.updateEvent(entryID)
+            }
+        })
     }
 }
