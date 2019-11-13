@@ -23,6 +23,21 @@ export const addHTML = (messages) => {
     }
 
 }
+export const dashboardHTML = (messages) => {
+    messages.sort(function(a, b){
+        let d1 = new Date(a.timestamp);
+        let d2 = new Date(b.timestamp);
+        return d1-d2;
+    })
+    let messageContainer = document.querySelector(".landingContentContainer-messages")
+    messagesEntries = ""
+    for (let i = 0; i < messages.length; i++) {
+        messagesEntries = messages[i];
+        messageContainer.innerHTML += createForm.makeMessageComponent
+            (messagesEntries)
+    }
+
+}
 export const newMessageButton = () => {
     let formContainer = document.querySelector(".formContainer")
     formContainer.innerHTML = createForm.newFormMessageButton()

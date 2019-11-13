@@ -1,9 +1,12 @@
-// Author: Manila Bui
+// Author: Manila Bui, James Chapman
 // Render landing page html + add event Listeners
 import createLanding from "./createLanding";
 import { handleFooterClick } from "./eventHandlers";
 import { getFirstThreeTasks } from "../tasks/APIManager";
 import { makeTaskComponent } from "../tasks/createForm";
+import APIManager from "../messages/APIManager";
+import createMessage from "../messages/createForm"
+import { dashboardHTML } from "../messages/domManager";
 
 // Executed by renderApp
 export const renderLanding = id => {
@@ -36,5 +39,8 @@ export const renderLanding = id => {
 
 			})
 		})
-
+	
+	// display a preview of messages on landing page JC
+	APIManager.getMessages()
+		.then(messages => dashboardHTML(messages))
 }
