@@ -4,7 +4,7 @@ export default ({ id, title, synopsis, url, timestamp }) => {
 	return `
 		<section class="pv1">
 			<header>
-				<span class="edit-article f3 fl pb2 gray hover-orange pointer" id="edit-article--${id}" alt="Edit article">&#x270E;</span>
+				<div class="edit-article f3 fl pr6 pb2 gray hover-orange pointer" id="edit-article--${id}" alt="Edit article">&#x270E;</div>
 				<a class="ttu f4 fw6 dib black link hover-blue" target="_blank" href="${url}">
 					${title}
 				</a>

@@ -4,7 +4,7 @@
 import createArticle from "./createArticle";
 import createForm from "./createForm";
 import { getCurrUserArticles } from "./APIManager";
-import { handleDeleteArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
+import { handleDeleteArticle, handleEditArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
 
 // Executed when "Create new article" or "Edit article" is clicked
 export const renderForm = (isNewArticle, userId, articleId) => {
@@ -31,11 +31,18 @@ export const renderArticles = (userId, articles) => {
 	contentContainer.innerHTML = articlesHTML;
 
 	const deleteArticleEls = document.querySelectorAll(".delete-article");
+	const editArticleEls = document.querySelectorAll(".edit-article");
 
 	deleteArticleEls.forEach(el => {
 		const articleId = el.id.split("--")[1];
 
 		el.addEventListener("click", () => handleDeleteArticle(userId, articleId));
+	});
+
+	editArticleEls.forEach(el => {
+		const articleId = el.id.split("--")[1];
+
+		el.addEventListener("click", () => handleEditArticle(userId, articleId));
 	});
 };
 

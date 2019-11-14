@@ -1,7 +1,7 @@
 // Author: Manila Bui
 // Handle all events associated with news page
 import { postArticle, deleteArticle, getCurrUserArticles } from "./APIManager";
-import { renderArticles, renderForm } from "./domManager";
+import { renderArticles, renderForm, renderNewsPage } from "./domManager";
 
 const getValue = selector => {
 	const input = document.querySelector(selector);
@@ -9,11 +9,26 @@ const getValue = selector => {
 	return input.checkValidity() ? input.value : false;
 };
 
-// Executed when the delete
+// Executed when create new article is clicked and when edit button is clicked
+export const handleFormCreation = (isNewArticle, userId, articleId) => {
+	return isNewArticle
+		? renderForm(true, userId, articleId)
+		: renderForm(false, userId, articleId)
+};
+
+// Executed when edit icon is clicked on an article
+export const handleEditArticle = (userId, articleId) => {
+	handleFormCreation(false, userId, articleId);
+
+	// TO DO: continue twerking on dis shiznizz
+	putArticle(article)
+		.then(() => renderNewsPage(userId));
+};
+
+// Executed when delete is clicked on an article
 export const handleDeleteArticle = (userId, articleId) => {
 	deleteArticle(articleId)
-		.then(() => getCurrUserArticles(userId))
-		.then(({ articles }) => renderArticles(userId, articles.reverse()));
+		.then(() => renderNewsPage(userId));
 };
 
 // Executed when save or update is clicked on the form
@@ -28,12 +43,5 @@ export const handleFormSubmission = (userId, articleId) => {
 	const article = { title, synopsis, url, timestamp, userId };
 
 	postArticle(article)
-		.then(() => getCurrUserArticles(userId))
-		.then(({ articles }) => renderArticles(userId, articles.reverse()));
-};
-
-export const handleFormCreation = (isNewArticle, userId, articleId) => {
-	return isNewArticle
-		? renderForm(true, userId, articleId)
-		: renderForm(false, userId, articleId)
+		.then(() => renderNewsPage(userId));
 };
