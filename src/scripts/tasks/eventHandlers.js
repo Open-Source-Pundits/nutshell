@@ -6,11 +6,11 @@ Purpose: To create event handlers that POST, PUT, and DELETE a task
 import { saveNewTask, getAllTasks, deleteSingleTask, getSingleTask, editSingleTask } from "./APIManager"
 import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToTaskName, attachEventListenerToNameInput } from "./domManager"
 import { createNewTaskButton } from "./createForm"
-const activeUser = sessionStorage.getItem("activeUser")
-const activeUserId = parseInt(activeUser)
 
 // this function grabs the value of the input box, and POSTs the new data to the API, then renders the new data on the DOM
 export const postTask = id => {
+    const activeUser = sessionStorage.getItem("activeUser")
+    const activeUserId = parseInt(activeUser)
     const date = document.querySelector("#taskDate").value
     const task = document.querySelector("#taskName").value
 
@@ -24,7 +24,7 @@ export const postTask = id => {
         .then(getAllTasks)
         .then(response => {
             const container = document.querySelector(".contentContainer")
-            container.innerHTML = "<h2>Tasks</h2>"
+            container.innerHTML = ""
             renderTasks(response)
             document.querySelector("#taskDate").value = ""
             document.querySelector("#taskName").value = ""
@@ -45,7 +45,7 @@ export const deleteTask = () => {
             .then(getAllTasks)
             .then(response => {
                 const container = document.querySelector(".contentContainer")
-                container.innerHTML = "<h2>Tasks</h2>"
+                container.innerHTML = ""
                 renderTasks(response)
             })
     }
@@ -59,7 +59,9 @@ export const completeTask = () => {
         console.log(taskToComplete)
         getSingleTask(taskToComplete)
             .then(task => {
-                // change the completion property to "true"
+                const activeUser = sessionStorage.getItem("activeUser")
+                const activeUserId = parseInt(activeUser)// change the completion property to "true"
+                
                 const updatedTaskEntry = {
                     userId: activeUserId,
                     taskName: task.taskName,
@@ -70,7 +72,7 @@ export const completeTask = () => {
                     .then(getAllTasks)
                     .then(response => {
                         const container = document.querySelector(".contentContainer")
-                        container.innerHTML = "<h2>Tasks</h2>"
+                        container.innerHTML = ""
                         renderTasks(response)
                     })
             })
@@ -93,6 +95,9 @@ export const editTask = () => {
                 // attach event listener to the name input box and when enter is pressed, perform a PUT and GET to API
                 nameInput.addEventListener("keypress", event => {
                     if (event.charCode === 13) {
+                        const activeUser = sessionStorage.getItem("activeUser")
+                        const activeUserId = parseInt(activeUser)
+
                         const nameInputValue = document.querySelector(`#taskNameEdit--${taskToEdit}`).value
                         const updatedTask = {
                             userId: activeUserId,
