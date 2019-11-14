@@ -62,7 +62,6 @@ export default {
         const editButtons = document.querySelector(".contentContainer")
         
         let entryID = ""
-
         editButtons.addEventListener("click", event => {
             putEventFormOnDOM()
             if (event.target.id.startsWith("editButton--")) {
