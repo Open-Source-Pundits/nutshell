@@ -86,7 +86,7 @@ textarea {
 	margin: 1px;
 }
 
-/*Events*/
+/* Events */
 .eventOnDOM:first-of-type {
 	background-color: gray;
 	font-weight: bold;
@@ -96,4 +96,9 @@ textarea {
 .eventsDash {
 	font-size: 11px;
 	margin: 1px;
+}
+
+/* News */
+.articleInput-synopsis {
+	height: 100px;
 }
