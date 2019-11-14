@@ -21,6 +21,7 @@ body {
 /* Pages Container */
 .sideNav {
 	width: 15%;
+	height: 100%;
 }
 
 .contentContainer-outer {
@@ -35,6 +36,14 @@ body {
 
 hr {
 	border: .5px dotted seaGreen;
+}
+
+fieldset {
+	border: 0;
+}
+
+textarea {
+	resize: none;
 }
 
 /* Landing */

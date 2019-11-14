@@ -13,3 +13,13 @@ export const deleteArticle = id => {
 	})
 		.then(r => r.json());
 }
+
+export const postArticle = article => {
+	return fetch(`${baseUrl}articles`, {
+    	method: "POST",
+    	headers: {
+        	"Content-Type": "application/json"
+    	},
+    	body: JSON.stringify(article)
+	});
+}
