@@ -11,6 +11,12 @@
       "username": "Maximus",
       "email": "maximus@me.com",
       "password": "password"
+    },
+    {
+      "username": "James G Chapman",
+      "email": "chapmanjamesg@gmail.com",
+      "password": "link",
+      "id": 2
     }
   ],
   "articles": [
@@ -57,32 +63,62 @@
   ],
   "messages": [
     {
-      "id": 1,
       "userId": 1,
       "message": "What's up?",
-      "timestamp": "Fri Nov 08 2019 10:15:44 GMT-0600 (Central Standard Time)"
-    }
-  ],
-  "events": [
-    {
-      "id": 1,
-      "userId": 1,
-      "name": "Demo Day",
-      "date": "2019-11-8",
-      "location": "Nashville Software School"
+      "timestamp": 1573675137476,
+      "id": 1
     },
     {
       "userId": 1,
-      "name": "bjoiealjb",
-      "date": "2019-11-13",
-      "location": "bjaeio;bl",
+      "message": "hey!!!!!",
+      "timestamp": 1573674485515,
       "id": 2
     },
     {
       "userId": 1,
-      "name": "bjoie",
-      "date": "2019-11-04",
-      "location": "bjaeio;bl",
+      "message": "hey buddy! how are you?",
+      "timestamp": 1573674893926,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "message": "hey buddy!!!!",
+      "timestamp": 1573676550737,
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "message": "this is fun!!!",
+      "timestamp": 1573675815360,
+      "id": 5
+    },
+    {
+      "userId": "1",
+      "message": "hey steve",
+      "timestamp": 1573676537638,
+      "id": 7
+    }
+  ],
+  "events": [
+    {
+      "userId": 1,
+      "name": "Group 3 project",
+      "date": "2019-11-14",
+      "location": "NSS",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "Group four project",
+      "date": "2019-11-15",
+      "location": "NSS",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "lalalal",
+      "date": "2019-11-15",
+      "location": "NSS",
       "id": 3
     }
   ],
@@ -96,9 +132,16 @@
     },
     {
       "userId": 1,
-      "taskName": "hepbaiohvaoei",
-      "dueDate": "2019-11-11",
+      "taskName": "the great expanse",
+      "dueDate": "",
       "completion": true,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "taskName": "Group Project 3",
+      "dueDate": "2019-11-15",
+      "completion": false,
       "id": 3
     }
   ],

@@ -1,6 +1,6 @@
 // Author: Manila Bui
 // Handle landing page events
-import { renderContentContainer } from "../app/domManager";
+import { renderContentContainer, renderApp } from "../app/domManager";
 import { renderNewsPage } from "../news/domManager";
 import events from "../events/mainEvents.js"
 import { renderTasks, attachEventListenerToCreateNewTaskButton, attachEventListenerToDeleteTaskButton, attachEventListenerToCheckBox, attachEventListenerToTaskName } from "../tasks/domManager";
@@ -31,5 +31,8 @@ export const handleFooterClick = (id, page) => {
     }
     if (page === "messages"){
         renderMessagePage()
+    }
+    if (page === "home"){
+        renderApp(id)
     }
 };

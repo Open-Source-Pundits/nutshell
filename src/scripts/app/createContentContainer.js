@@ -3,7 +3,7 @@
 // This container holds the side nav, primary content for the individual pages + form container.
 const pages = ["Home", "Events", "Tasks", "Messages", "News", "Friends"];
 
-const createNavLink = page => `<p class="navLink dim pointer">${page}</p>`;
+const createNavLink = page => `<p class="navLink dim pointer" id="link--${page}">${page}</p>`;
 
 export default currPage => {
 	let navLinks = "";
