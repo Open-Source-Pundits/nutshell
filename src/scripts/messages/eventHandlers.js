@@ -4,8 +4,8 @@ import messageForm from "../messages/createForm"
 import APIManager from "../messages/APIManager"
 import { addHTML, renderMessagePage, newMessageButton } from "./domManager"
 
-const activeUser = sessionStorage.getItem("activeUser")
-const activeUserId = parseInt(activeUser)
+let activeUser = sessionStorage.getItem("activeUser")
+let activeUserId = parseInt(activeUser)
 
 export default {
 
