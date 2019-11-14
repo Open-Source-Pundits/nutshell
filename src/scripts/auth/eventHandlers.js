@@ -37,29 +37,22 @@ export const handleRegistration = () => {
 		getAllUsers()
 			.then(users => {
 				console.log(users)
-				let emailArray = []
 				users.forEach(user => {
-					emailArray.push(user.email)
-				});
-				console.log(emailArray)
-
-				for (let i = 0; i < emailArray.length; i++) {
-					if (email === emailArray[i]) {
-						alert("user already has an account")
-					}
-					else {
-						postNewUser(userObject)
-							.then(getRegisteredUser(email))
-							.then(user => {
-								console.log(user)
-								sessionStorage.setItem("activeUser", user.id)
-								renderApp(user.id)
-							})
-					}
-				}
-				// 	if (email !=== user.email) {
-
-				// }
+					console.log(user)
+					if (email === user.email) {
+						return alert("User already has an account") 
+					} 
+			})
+				postNewUser(userObject)
+					.then(getRegisteredUser(email))
+					.then(user => {
+						console.log(user)
+						sessionStorage.setItem("activeUser", user.id)
+						renderApp(user.id)
+			}
+			)
+			console.log(user.email)
+		;
 			})
 	} else if (password2 !== password1) {
 		alert("Passwords do not match")
@@ -67,3 +60,32 @@ export const handleRegistration = () => {
 		alert("Invalid Email Address")
 	}
 }
+
+
+
+
+
+
+// let emailArray = []
+				// users.forEach(user => {
+				// 	emailArray.push(user.email)
+				// });
+				// console.log(emailArray)
+
+				// for (let i = 0; i < emailArray.length; i++) {
+				// 	if (email === emailArray[i]) {
+				// 		alert("user already has an account")
+				// 	}
+				// 	else {
+				// 		postNewUser(userObject)
+				// 			.then(getRegisteredUser(email))
+				// 			.then(user => {
+				// 				console.log(user)
+				// 				sessionStorage.setItem("activeUser", user.id)
+				// 				renderApp(user.id)
+				// 			})
+				// 	}
+				// }
+				// 	if (email !=== user.email) {
+
+				// }
