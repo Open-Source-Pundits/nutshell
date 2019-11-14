@@ -33,7 +33,7 @@ export const handleFormSubmission = (userId, articleId) => {
 };
 
 export const handleFormCreation = (isNewArticle, userId, articleId) => {
-	return isNewArticle 
-		? renderForm(true, userId, articleId) 
+	return isNewArticle
+		? renderForm(true, userId, articleId)
 		: renderForm(false, userId, articleId)
 };
