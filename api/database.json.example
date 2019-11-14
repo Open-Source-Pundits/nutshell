@@ -3,13 +3,7 @@
     {
       "id": 1,
       "username": "Steve",
-      "email": "steve@me.com",
-      "password": "password"
-    },
-    {
-      "id": 2,
-      "username": "Maximus",
-      "email": "maximus@me.com",
+      "email": "me@me.com",
       "password": "password"
     },
     {
@@ -17,6 +11,12 @@
       "email": "chapmanjamesg@gmail.com",
       "password": "link",
       "id": 2
+    },
+    {
+      "id": 3,
+      "username": "Maximus",
+      "email": "maximus@me.com",
+      "password": "password"
     }
   ],
   "articles": [
@@ -102,13 +102,6 @@
   "events": [
     {
       "userId": 1,
-      "name": "Group 3 project",
-      "date": "2019-11-14",
-      "location": "NSS",
-      "id": 1
-    },
-    {
-      "userId": 1,
       "name": "Group four project",
       "date": "2019-11-15",
       "location": "NSS",
@@ -125,7 +118,7 @@
   "tasks": [
     {
       "userId": 1,
-      "taskName": "Blueberries",
+      "taskName": "working",
       "dueDate": "2019-11-11",
       "completion": true,
       "id": 1
@@ -135,13 +128,6 @@
       "taskName": "the great expanse",
       "dueDate": "",
       "completion": true,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "taskName": "Group Project 3",
-      "dueDate": "2019-11-15",
-      "completion": false,
       "id": 3
     }
   ],
