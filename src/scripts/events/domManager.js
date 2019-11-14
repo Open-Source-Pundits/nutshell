@@ -55,6 +55,8 @@ export default {
         
     },
 
+    //Attaches event listener for edit button
+
     edit() {
 
         
