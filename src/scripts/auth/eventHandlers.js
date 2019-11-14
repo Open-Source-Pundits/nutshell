@@ -2,7 +2,7 @@
 // All event handlers associated with events on the login + registration forms.
 import { renderRegistration } from "./domManager";
 import { renderApp } from "../app/domManager";
-import { postNewUser, getRegisteredUser, getAllUsers } from "./APIManager";
+import { postNewUser, getRegisteredUser, getAllUsers, getUserEmail } from "./APIManager";
 
 export const handleLogin = () => {
 	// TO DO: Check validity of user with db. If valid, take them to landing page.
@@ -32,27 +32,24 @@ export const handleRegistration = () => {
 	}
 
 	// POST new user and render the app using the user ID to set session storage
-
 	if (password1 === password2 && email.includes("@")) {
-		getAllUsers()
+
+		getUserEmail(email)
 			.then(users => {
-				console.log(users)
-				users.forEach(user => {
-					console.log(user)
-					if (email === user.email) {
-						return alert("User already has an account") 
-					} 
-			})
-				postNewUser(userObject)
-					.then(getRegisteredUser(email))
-					.then(user => {
-						console.log(user)
-						sessionStorage.setItem("activeUser", user.id)
-						renderApp(user.id)
-			}
-			)
-			console.log(user.email)
-		;
+				// if an empty array comes back, POST the user to the API and log them in
+				if (users.length === 0) {
+					console.log("true")
+					postNewUser(userObject)
+						.then(getRegisteredUser(email))
+						.then(user => {
+							console.log(user)
+							sessionStorage.setItem("activeUser", user.id)
+							renderApp(user.id)
+						}
+						)
+				} else {
+					alert("User already has an account")
+				}
 			})
 	} else if (password2 !== password1) {
 		alert("Passwords do not match")
@@ -60,32 +57,3 @@ export const handleRegistration = () => {
 		alert("Invalid Email Address")
 	}
 }
-
-
-
-
-
-
-// let emailArray = []
-				// users.forEach(user => {
-				// 	emailArray.push(user.email)
-				// });
-				// console.log(emailArray)
-
-				// for (let i = 0; i < emailArray.length; i++) {
-				// 	if (email === emailArray[i]) {
-				// 		alert("user already has an account")
-				// 	}
-				// 	else {
-				// 		postNewUser(userObject)
-				// 			.then(getRegisteredUser(email))
-				// 			.then(user => {
-				// 				console.log(user)
-				// 				sessionStorage.setItem("activeUser", user.id)
-				// 				renderApp(user.id)
-				// 			})
-				// 	}
-				// }
-				// 	if (email !=== user.email) {
-
-				// }
