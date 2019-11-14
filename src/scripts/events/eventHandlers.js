@@ -49,15 +49,13 @@ export default {
 
     //Add delete button to events
 
-    attachEventDeleteButton() {
+//     attachEventDeleteButton() {
 
-        if (event.target.id.startsWith("deleteButton--")) {
-            const entryToDelete = event.target.id.split("--")[1]
-
-            API.deleteEntry(entryToDelete)
-                .then(API.getEvents)
-                .then(DOM.putEventsOnDOM)
-               
-        }
-    }
-}
+//         if (event.target.id.startsWith("deleteButton--")) {
+//             const entryToDelete = event.target.id.split("--")[1]
+//             API.deleteEntry(entryToDelete)
+//                 .then(API.getEvents)
+//                 .then(DOM.putEventsOnDOM)
+//         }
+//     }
+// }

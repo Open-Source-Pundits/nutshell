@@ -13,7 +13,7 @@ export default {
         API.getEvents()
             .then(DOM.putEventsOnDOM)
         DOM.putNewEventButtonOnDOM()
-        DOM.delete()
+        DOM.deleteEvent()
         DOM.edit()
     }
 }
