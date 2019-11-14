@@ -1,6 +1,6 @@
 // Author: Manila Bui
 // Handle all events associated with news page
-import { deleteArticle, getCurrUserArticles } from "./APIManager";
+import { postArticle, deleteArticle, getCurrUserArticles } from "./APIManager";
 import { renderArticles, renderForm } from "./domManager";
 
 const getValue = selector => {
@@ -18,18 +18,18 @@ export const handleDeleteArticle = (userId, articleId) => {
 
 // Executed when save or update is clicked on the form
 export const handleFormSubmission = (userId, articleId) => {
-	const title = getValue(".input-title");
-	const synopsis = getValue(".input-synopsis");
-	const url = getValue(".input-url");
+	const title = getValue(".articleInput-title");
+	const synopsis = getValue(".articleInput-synopsis");
+	const url = getValue(".articleInput-url");
 	const timestamp = Date();
 
 	if (!title || !synopsis || !url) return console.log("Invalid entry.");
 
-	const article = { title, synopsis, url, timestamp };
-	console.log(article)
-	// postEntry(newEntry)
-	// 	.then(getEntries)
-	// 	.then(entries => renderEntries(entries));
+	const article = { title, synopsis, url, timestamp, userId };
+
+	postArticle(article)
+		.then(() => getCurrUserArticles(userId))
+		.then(({ articles }) => renderArticles(userId, articles.reverse()));
 };
 
 export const handleFormCreation = (isNewArticle, userId, articleId) => {

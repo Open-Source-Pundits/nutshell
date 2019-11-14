@@ -14,7 +14,10 @@ export const renderForm = (isNewArticle, userId, articleId) => {
 
 	const submitButton = isNewArticle ? document.querySelector(".button-save") : document.querySelector(".button-update");
 
-	submitButton.addEventListener("click", () => handleFormSubmission(userId, articleId));
+	submitButton.addEventListener("click", e => {
+		e.preventDefault();
+		handleFormSubmission(userId, articleId);
+	});
 };
 
 // Executed when the news page is initially rendered + after there's a change to a user's articles (delete, edit, create).
@@ -38,8 +41,10 @@ export const renderArticles = (userId, articles) => {
 
 // Executed when link is clicked on landing page or side nav to bring the user to the news page
 export const renderNewsPage = id => {
-	getCurrUserArticles(id)
-		.then(({ articles }) => renderArticles(id, articles.reverse()));
+	const userId = parseInt(id);
+
+	getCurrUserArticles(userId)
+		.then(({ articles }) => renderArticles(userId, articles.reverse()));
 
 	const formContainer = document.querySelector(".formContainer");
 
@@ -47,5 +52,5 @@ export const renderNewsPage = id => {
 
 	const newArticleFormLink = document.querySelector(".newArticleFormLink");
 
-	newArticleFormLink.addEventListener("click", () => handleFormCreation(true));
+	newArticleFormLink.addEventListener("click", () => handleFormCreation(true, userId, 0));
 };
