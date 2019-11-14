@@ -9,4 +9,4 @@
 1. Run `npm start` to verify that installation was successful.
 
 ## ERD
-![nutshell features](./nutshell.png)
+![nutshell features](./nutshellERD.png)
