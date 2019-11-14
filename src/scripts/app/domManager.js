@@ -1,4 +1,4 @@
-// Author: Manila Bui
+// Author: Manila Bui, James Chapman
 // Renders the initial view to the DOM.
 // If no activeUser, authorization page is displayed. Otherwise, landing is displayed.
 import { getUser } from "./APIManager";
@@ -31,8 +31,16 @@ export const renderContentContainer = currPage => {
 
 	mainContainer.innerHTML = createContentContainer(currPage);
 
-	//working code for nav
-
+	//working code for nav JC
+	
+	//logo nav
+	const logoLink = document.querySelector(".logo")
+	logoLink.addEventListener("click", event => {
+		console.log("click")
+		renderApp(id)
+	})
+	
+	//side nav
 	const navLinkArray = document.querySelector(".sideNav")
 	navLinkArray.addEventListener("click", event => {
 		if (event.target.id.startsWith("link--")) {
