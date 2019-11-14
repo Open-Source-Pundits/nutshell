@@ -46,7 +46,7 @@ export default {
                 .then(DOM.putNewEventButtonOnDOM)
         }
     },
-
+}
     //Add delete button to events
 
 //     attachEventDeleteButton() {
