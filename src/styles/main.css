@@ -18,6 +18,34 @@ body {
 	border: 1px solid seaShell;
 }
 
+/* Pages Container */
+.sideNav {
+	width: 15%;
+	height: 100%;
+}
+
+.contentContainer-outer {
+	border-right: 2.5px seagreen solid;
+	width: 42.5%;
+}
+
+.formContainer {
+	padding-top: 30px;
+	width: 42.5%;
+}
+
+hr {
+	border: .5px dotted seaGreen;
+}
+
+fieldset {
+	border: 0;
+}
+
+textarea {
+	resize: none;
+}
+
 /* Landing */
 .landingSectionContainer {
 	display: grid;
@@ -48,21 +76,9 @@ body {
 }
 
 /* Tasks Page */
-.flexCenter{
+.flexCenter {
 	display: flex;
 	justify-content: space-between;
-}
-
-.contentContainer, .formContainer {
-	flex-basis: 40%;
-	border: 1px seagreen solid;
-	padding: 10px 20px;
-	margin: 20px;
-}
-
-.sideNav {
-	flex-basis: 20%;
-	margin: 20px;
 }
 
 .tasksSection {
@@ -70,8 +86,7 @@ body {
 	margin: 1px;
 }
 
-/*Events*/
-
+/* Events */
 .eventOnDOM:first-of-type {
 	background-color: gray;
 	font-weight: bold;
@@ -81,4 +96,9 @@ body {
 .eventsDash {
 	font-size: 11px;
 	margin: 1px;
+}
+
+/* News */
+.articleInput-synopsis {
+	height: 100px;
 }
