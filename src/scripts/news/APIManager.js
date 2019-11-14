@@ -12,7 +12,7 @@ export const deleteArticle = id => {
 		method: "DELETE"
 	})
 		.then(r => r.json());
-}
+};
 
 export const postArticle = article => {
 	return fetch(`${baseUrl}articles`, {
@@ -22,4 +22,4 @@ export const postArticle = article => {
     	},
     	body: JSON.stringify(article)
 	});
-}
+};

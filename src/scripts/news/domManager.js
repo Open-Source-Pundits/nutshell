@@ -4,13 +4,17 @@
 import createArticle from "./createArticle";
 import createForm from "./createForm";
 import { getCurrUserArticles } from "./APIManager";
-import { handleDeleteArticle, handleNewArticleForm } from "./eventHandlers";
+import { handleDeleteArticle, handleFormCreation } from "./eventHandlers";
 
 // Executed when "Create new article" or "Edit article" is clicked
-export const renderForm = () => {
+export const renderForm = isNewArticle => {
 	const formContainer = document.querySelector(".formContainer");
 
-	formContainer.innerHTML = createForm();
+	formContainer.innerHTML = createForm(isNewArticle);
+
+	const submitButton = isNewArticle ? document.querySelector(".button-save") : document.querySelector(".button-update");
+
+	submitButton.addEventListener("click", handleFormSubmission);
 };
 
 // Executed when the news page is initially rendered + after there's a change to a user's articles (delete, edit, create).
@@ -43,5 +47,5 @@ export const renderNewsPage = id => {
 
 	const newArticleFormLink = document.querySelector(".newArticleFormLink");
 
-	newArticleFormLink.addEventListener("click", handleNewArticleForm);
+	newArticleFormLink.addEventListener("click", () => handleFormCreation(true));
 };

@@ -10,6 +10,8 @@ export const handleDeleteArticle = (userId, articleId) => {
 		.then(({ articles }) => renderArticles(userId, articles.reverse()));
 };
 
-export const handleNewArticleForm = () => {
-	renderForm()
+export const handleFormSubmission = () => {
+	
 };
+
+export const handleFormCreation = isNewArticle => isNewArticle ? renderForm(true) : renderForm(false);
