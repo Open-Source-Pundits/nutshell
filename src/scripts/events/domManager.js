@@ -22,9 +22,9 @@ export default {
     //Puts all events of active user on DOM in order by date
 
     putEventsOnDOM(response) {
-        response.sort(function(a, b){
-            let dateA=new Date(a.date), dateB=new Date(b.date)
-            return dateA-dateB
+        response.sort(function (a, b) {
+            let dateA = new Date(a.date), dateB = new Date(b.date)
+            return dateA - dateB
         })
         const eventsContainer = document.querySelector(".contentContainer")
         let eventsHTML = ""
@@ -52,17 +52,16 @@ export default {
         const deleteButtons = document.querySelector(".contentContainer")
 
         deleteButtons.addEventListener("click", () => eventHandlers.attachEventDeleteButton())
-        
+
     },
+
+    //Attaches event listener for edit button
 
     edit() {
 
-        
-
         const editButtons = document.querySelector(".contentContainer")
-
+        
         let entryID = ""
-
         editButtons.addEventListener("click", event => {
             putEventFormOnDOM()
             if (event.target.id.startsWith("editButton--")) {

@@ -23,8 +23,8 @@ export default {
                     <label for "eventLocationField">Location: </label>
                     <input class="eventFormField" type="text" name="eventField" id="eventLocationField">
                 </fieldset>
-                <button class="eventFormFieldset" type="button" id="saveEventButton">Save Event</button> 
             </form>
+            <button class="eventFormFieldset" type="button" id="saveEventButton">Save Event</button> 
         </div>  
         `
     },
