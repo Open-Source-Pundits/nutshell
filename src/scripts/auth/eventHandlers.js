@@ -2,7 +2,7 @@
 // All event handlers associated with events on the login + registration forms.
 import { renderRegistration } from "./domManager";
 import { renderApp } from "../app/domManager";
-import { postNewUser, getRegisteredUser } from "./APIManager";
+import { postNewUser, getRegisteredUser, getAllUsers, getUserEmail } from "./APIManager";
 
 export const handleLogin = () => {
 	// TO DO: Check validity of user with db. If valid, take them to landing page.
@@ -30,18 +30,30 @@ export const handleRegistration = () => {
 		email: email,
 		password: password2
 	}
+
+	// POST new user and render the app using the user ID to set session storage
 	if (password1 === password2 && email.includes("@")) {
-		// POST new user and render the app using the user ID to set session storage
-	postNewUser(userObject)
-	.then(getRegisteredUser(email))
-	.then(user => {
-		console.log(user)
-		sessionStorage.setItem("activeUser", user.id)
-		renderApp(user.id)
-	})
+
+		getUserEmail(email)
+			.then(users => {
+				// if an empty array comes back, POST the user to the API and log them in
+				if (users.length === 0) {
+					console.log("true")
+					postNewUser(userObject)
+						.then(getRegisteredUser(email))
+						.then(user => {
+							console.log(user)
+							sessionStorage.setItem("activeUser", user.id)
+							renderApp(user.id)
+						}
+						)
+				} else {
+					alert("User already has an account")
+				}
+			})
 	} else if (password2 !== password1) {
 		alert("Passwords do not match")
 	} else if (email.includes("@") !== true) {
 		alert("Invalid Email Address")
 	}
-};
+}
