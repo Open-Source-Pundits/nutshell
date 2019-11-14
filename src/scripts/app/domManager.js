@@ -8,8 +8,7 @@ import createContentContainer from "./createContentContainer";
 import { renderLogin } from "../auth/domManager";
 import { handleFooterClick } from "../landing-page/eventHandlers"
 
-const activeUser = sessionStorage.getItem("activeUser")
-const id = parseInt(activeUser)
+
 
 // Executed on main using the activeUser id + after a new user registers.
 export const renderApp = id => {
@@ -32,19 +31,26 @@ export const renderContentContainer = currPage => {
 	mainContainer.innerHTML = createContentContainer(currPage);
 
 	//working code for nav JC
-	
+
 	//logo nav
 	const logoLink = document.querySelector(".logo")
 	logoLink.addEventListener("click", event => {
+		//had to change into a let so that it could update on first log in
+		let activeUser = sessionStorage.getItem("activeUser")
+		let id = parseInt(activeUser)
+
 		console.log("click")
 		renderApp(id)
 	})
-	
+
 	//side nav
 	const navLinkArray = document.querySelector(".sideNav")
 	navLinkArray.addEventListener("click", event => {
 		if (event.target.id.startsWith("link--")) {
 			const pageToLoad = event.target.id.split("--")[1]
+			//had to change into a let so that it could update on first log in
+			let activeUser = sessionStorage.getItem("activeUser")
+			let id = parseInt(activeUser)
 			// console.log(pageToLoad)
 			const lowercaseWord = word => `${word[0].toLowerCase()}${word.slice(1)}`;
 			const page = lowercaseWord(pageToLoad)
@@ -56,10 +62,10 @@ export const renderContentContainer = currPage => {
 		pages.map(page => {
 			if (page === currPage) return // add event listener here ;
 		})
-		}
+	}
 	)
 
-		
+
 	// TODO: add event listener to logo and all side nav page links
 
 };
