@@ -26,6 +26,7 @@ export const renderContentContainer = currPage => {
 	const mainContainer = document.querySelector(".mainContainer");
 
 	mainContainer.innerHTML = createContentContainer(currPage);
+	
 
 	// TODO: add event listener to logo and all side nav page links
 
