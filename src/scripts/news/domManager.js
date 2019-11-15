@@ -2,6 +2,7 @@
 // All rendering associated with the news.
 // These functions will render the html + add event listeners where applicable.
 import createArticle from "./createArticle";
+import createArticlePreview from "./createArticlePreview";
 import createForm from "./createForm";
 import { getArticle, getCurrUserArticles } from "./APIManager";
 import { handleDeleteArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
@@ -31,6 +32,19 @@ export const renderForm = (userId, articleId) => {
 	});
 
 	if (articleId) populateForm(articleId);
+};
+
+// Executed by rendering landing
+export const renderLandingNews = (userId, articles) => {
+	const newsContainer = document.querySelector(".landingContentContainer-news");
+
+	if (articles.length > 4) articles = articles.slice(0,4);
+
+	let previewHTML = "";
+
+	articles.forEach(article => previewHTML += createArticlePreview(article));
+	// Slice to remove last horizontal rule
+	newsContainer.innerHTML = previewHTML.slice(0,-6);
 };
 
 // Executed by rendering news page
