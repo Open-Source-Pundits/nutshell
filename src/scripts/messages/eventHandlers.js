@@ -3,6 +3,7 @@
 import messageForm from "../messages/createForm"
 import APIManager from "../messages/APIManager"
 import { addHTML, renderMessagePage, newMessageButton, newFriendsMessage } from "./domManager"
+import { saveMessageFriend } from "../friends/APIManager"
 
 let activeUser = sessionStorage.getItem("activeUser")
 let activeUserId = parseInt(activeUser)
@@ -100,8 +101,28 @@ export default {
     addFriend: ()=>{
         if(event.target.id.startsWith("friends-")){
             const userToFriend = event.target.id.split("-")[1]
+            console.log(userToFriend)
+            const friendsPrompt = confirm("Would you like to add this person as a friend?")
+            if(friendsPrompt === true){
+                const activeUserId = sessionStorage.getItem("activeUser")
+                const userId = userToFriend
+
+                const addFriendRequest = () => {
+                    return {
+                        "userId": userId,
+                        "loggedInUserId": activeUserId
+                    }
+                }
+
+                const friendsArray = [userId, activeUserId]
+
+                const newFriend = addFriendRequest(userId, activeUserId)
+                saveMessageFriend(newFriend)
+                    
+            }else {
+                window.alert("You obviously hate this person")
+            }
         }
-        window.alert("do you want to add a friend?")
     }
 }
 

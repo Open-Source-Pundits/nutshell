@@ -67,10 +67,8 @@ export const renderMessagePage = () => {
 
     const newFriendsMessage = () =>{
         const friendsMessage = document.querySelector(".contentContainer")
-        console.log(friendsMessage)
-        friendsMessage.addEventListener("click", event => {
-    console.log("working")
-        })
+        // console.log(friendsMessage)
+        friendsMessage.addEventListener("click", edit.addFriend)
     }
 
     newFriendsMessage()
