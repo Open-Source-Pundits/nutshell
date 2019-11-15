@@ -101,16 +101,18 @@ export default {
     addFriend: ()=>{
         if(event.target.id.startsWith("friends-")){
             const userToFriend = event.target.id.split("-")[1]
+            const parsedUserToFriendId = parseInt(userToFriend)
             console.log(userToFriend)
             const friendsPrompt = confirm("Would you like to add this person as a friend?")
             if(friendsPrompt === true){
                 const activeUserId = sessionStorage.getItem("activeUser")
+                const parsedUserId = parseInt(activeUserId)
                 const userId = userToFriend
 
                 const addFriendRequest = () => {
                     return {
-                        "userId": userId,
-                        "loggedInUserId": activeUserId
+                        "userId": parsedUserToFriendId,
+                        "loggedInUserId": parsedUserId
                     }
                 }
 
@@ -119,7 +121,7 @@ export default {
                 const newFriend = addFriendRequest(userId, activeUserId)
                 saveMessageFriend(newFriend)
                     
-            }else {
+            } else {
                 window.alert("You obviously hate this person")
             }
         }

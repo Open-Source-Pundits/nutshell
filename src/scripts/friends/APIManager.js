@@ -1,9 +1,15 @@
+import { baseUrl } from "../utils/global"
 
 
-const baseurl = "http://localhost:8088/"
+export const getFriends = (userInput) => {
+    return fetch(`${baseUrl}users?q=${userInput}`)
+    .then(response => response.json())
+  }
+
+
 // saveMessageFriend author James Chapman
 export const saveMessageFriend = (friendRequest) => {
-    return fetch(`${baseurl}friends`,{
+    return fetch(`${baseUrl}friends`,{
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -12,7 +18,9 @@ export const saveMessageFriend = (friendRequest) => {
     })
 }
 
-export const getFriendsForDash = (activeUser) => {
-    return fetch(`${baseurl}friends?_expand=user`)
+export const getFriendsForDash = () => {
+    const activeUser = sessionStorage.getItem("activeUser")
+    const activeUserId = parseInt(activeUser)
+    return fetch(`${baseUrl}friends?_expand=user&loggedInUserId=${activeUserId}`)
         .then(response => response.json())
 }
