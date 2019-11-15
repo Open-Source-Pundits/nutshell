@@ -65,7 +65,7 @@ export const attachEventListenerToSaveFriendButton = id => {
     friendsContainer.addEventListener("click", event => {
         console.log(event)
         addAFriend.addFriend()
-       .then(getFriendsForDash)
+       getFriendsForDash()
         .then(response => {
             console.log(response)
         renderFriendsList(response)
