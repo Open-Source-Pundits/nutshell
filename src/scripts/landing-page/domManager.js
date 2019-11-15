@@ -4,12 +4,14 @@ import createLanding from "./createLanding";
 import { handleFooterClick } from "./eventHandlers";
 import { getFirstThreeTasks } from "../tasks/APIManager";
 import { makeTaskComponent } from "../tasks/createForm";
-import API from "../events/APIManager.js"
-import HTMLForms from "../events/createForm.js"
+import API from "../events/APIManager";
+import HTMLForms from "../events/createForm";
 import APIManager from "../messages/APIManager";
 import { dashboardHTML } from "../messages/domManager";
+import { getCurrUserArticles } from "../news/APIManager";
+import { renderLandingNews } from "../news/domManager";
 
-// Executed by renderApp
+// MB: Executed by renderApp
 export const renderLanding = id => {
 
 	const mainContainer = document.querySelector(".mainContainer");
@@ -24,8 +26,11 @@ export const renderLanding = id => {
 		footer.addEventListener("click", () => handleFooterClick(id, currSection));
 	})
 
-	// Author: Lauren Riddle
-	// display a preview of tasks on landing page
+	// MB: display news preview
+	getCurrUserArticles(id)
+		.then(({ articles }) => renderLandingNews(id, articles.reverse()));
+
+	// LR: display a preview of tasks on landing page
 	const tasksContainer = document.querySelector(".landingContentContainer-tasks")
 	getFirstThreeTasks()
 		.then(tasks => {
@@ -41,9 +46,7 @@ export const renderLanding = id => {
 			})
 		})
 
-
 	// display preview of events on landing page
-
 	const eventsContainer = document.querySelector(".landingContentContainer-events")
 	API.getEventsOnDash()
 		.then(events => {
@@ -54,9 +57,8 @@ export const renderLanding = id => {
 			})
 			eventsContainer.innerHTML = HTMLForAllEvents
 		})
-
-	
-	// display a preview of messages on landing page JC
+		
+	// JC: display a preview of messages on landing page
 	APIManager.getMessages()
 		.then(messages => dashboardHTML(messages))
 }

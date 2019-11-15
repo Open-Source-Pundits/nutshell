@@ -70,6 +70,12 @@ textarea {
 	border-bottom: 1px solid seaGreen;
 }
 
+.landingContentContainer {
+	font-size: 11px;
+	margin: 1px;
+	padding-bottom: 10px;
+}
+
 .landingSectionFooter {
 	font-style: italic;
 	padding-top: 10px;
@@ -81,21 +87,11 @@ textarea {
 	justify-content: space-between;
 }
 
-.tasksSection {
-	font-size: 11px;
-	margin: 1px;
-}
-
 /* Events */
 .eventOnDOM:first-of-type {
 	background-color: gray;
 	font-weight: bold;
 	font-size: 120%;
-}
-
-.eventsDash {
-	font-size: 11px;
-	margin: 1px;
 }
 
 /* News */
