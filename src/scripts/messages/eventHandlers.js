@@ -2,7 +2,7 @@
 // This module will handle all of the events that eventListeners brings to it
 import messageForm from "../messages/createForm"
 import APIManager from "../messages/APIManager"
-import { addHTML, renderMessagePage, newMessageButton } from "./domManager"
+import { addHTML, renderMessagePage, newMessageButton, newFriendsMessage } from "./domManager"
 
 let activeUser = sessionStorage.getItem("activeUser")
 let activeUserId = parseInt(activeUser)
@@ -51,8 +51,8 @@ export default {
     },
     editMessage: () => {
         //figure out which message is targeted
-        console.log(event.target)
         // console.log(event.target.class.startsWith("messages-"))
+        // console.log(event.target)
         if (event.target.id.startsWith("messages-")) {
             //make a variable that focuses on the target ID
             const messageToEdit = event.target.id.split("-")[1]
@@ -96,6 +96,12 @@ export default {
                 })
         }
 
+    },
+    addFriend: ()=>{
+        if(event.target.id.startsWith("friends-")){
+            const userToFriend = event.target.id.split("-")[1]
+        }
+        window.alert("do you want to add a friend?")
     }
 }
 
