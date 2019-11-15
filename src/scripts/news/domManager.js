@@ -6,7 +6,6 @@ import createForm from "./createForm";
 import { getArticle, getCurrUserArticles } from "./APIManager";
 import { handleDeleteArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
 
-// TO DO
 const populateForm = articleId => {
 	getArticle(articleId)
 		.then(({ title, synopsis, url, timestamp, id }) => {

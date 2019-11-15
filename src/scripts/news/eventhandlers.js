@@ -12,12 +12,6 @@ const getValue = selector => {
 // Executed when create new article is clicked and when edit button is clicked
 export const handleFormCreation = (userId, articleId) => renderForm(userId, articleId);
 
-export const handleUpdateArticle = (userId, articleId, article) => {
-	// // TO DO: continue twerking on dis shiznizz
-	// putArticle(article)
-	// 	.then(() => renderNewsPage(userId))
-};
-
 // Executed when delete is clicked on an article
 export const handleDeleteArticle = (userId, articleId) => {
 	deleteArticle(articleId)
@@ -36,8 +30,6 @@ export const handleFormSubmission = (userId, articleId) => {
 	const article = { title, synopsis, url, timestamp, userId };
 
 	if (articleId) {
-		article.articleId = articleId;
-
 		putArticle(articleId, article)
 			.then(() => renderNewsPage(userId));
 	} else {
