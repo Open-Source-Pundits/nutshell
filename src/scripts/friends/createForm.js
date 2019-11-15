@@ -40,14 +40,16 @@ export const makeFriendComponent = (friend, friendsPage) => {
     // if loading the tasks page, add a checkbox and button
     if(friendsPage === "friendsPage"){
         return `<section class="friendsSection">
-        ${singleFriendHtml}
+        <div id="friendNameContainer--${friend.id}">
+        <h3 id="friend--${friend.id}">${friend.user.username}</h3>
+        </div>
         <button id="deleteButton--${friend.id}">Delete</button>
         </section>`
     }
     // otherwise just load the name and date
     else {
         return `<section class="friendsSection">${singleFriendHtml}
-        <button id="saveFriend">Save Friend</button>
+        <button id="friends-${friend.id}">Save Friend</button>
         </section>`
     }
     

@@ -8,7 +8,8 @@ import { getAllTasks } from "../tasks/APIManager";
 import { createNewTaskButton } from "../tasks/createForm";
 import { renderMessagePage } from "../messages/domManager"
 import { addNewFriendButton } from "../friends/createForm";
-import { attachEventListenerToAddFriendButton } from "../friends/domManager";
+import { attachEventListenerToAddFriendButton, renderFriendsList } from "../friends/domManager";
+import { getFriendsForDash } from "../friends/APIManager";
 
 
 const capitalizeWord = word => `${word[0].toUpperCase()}${word.slice(1)}`;
@@ -38,6 +39,8 @@ export const handleFooterClick = (id, page) => {
         renderApp(id)
     }
     if (page === "friends") {
+        getFriendsForDash()
+        .then(response => renderFriendsList(response))
         addNewFriendButton()
         attachEventListenerToAddFriendButton()
     }

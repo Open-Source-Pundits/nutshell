@@ -18,7 +18,9 @@ export const saveMessageFriend = (friendRequest) => {
     })
 }
 
-export const getFriendsForDash = (activeUser) => {
-    return fetch(`${baseUrl}friends?_expand=user`)
+export const getFriendsForDash = () => {
+    const activeUser = sessionStorage.getItem("activeUser")
+    const activeUserId = parseInt(activeUser)
+    return fetch(`${baseUrl}friends?_expand=user&loggedInUserId=${activeUserId}`)
         .then(response => response.json())
 }
