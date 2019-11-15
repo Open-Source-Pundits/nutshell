@@ -22,7 +22,7 @@ export const makeTaskComponent = (tasks, tasksPage) => {
     }
     // otherwise just load the name and date
     else {
-        return `<section class="tasksSection">${singleTaskHtml}</section>`
+        return `<section>${singleTaskHtml}</section>`
     }
     
 }
