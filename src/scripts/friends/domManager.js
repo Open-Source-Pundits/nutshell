@@ -8,12 +8,12 @@ export const renderFriendsResults = (friends) => {
 
         const friendsHtml = makeFriendComponent(friend)
         HtmlForAllFriends += friendsHtml
-        attachEventListenerToSaveFriendButton()
+
     })
     const friendsResultsContainer = document.querySelector("#friendsResultsContainer")
     friendsResultsContainer.innerHTML = ""
     friendsResultsContainer.innerHTML += HtmlForAllFriends
-    attachEventListenerToSaveFriendButton()
+    // attachEventListenerToSaveFriendButton()
 }
 
 export const renderFriendsList = (friends) => {
@@ -34,7 +34,6 @@ export const attachEventListenerToAddFriendButton = id => {
     const addAFriendButton = document.querySelector("#newFriendButton")
     addAFriendButton.addEventListener("click", () => {
         buildAndAppendNewFriendForm()
-        attachEventListenerToFindFriendButton()
     })
 }
 
@@ -43,9 +42,9 @@ export const attachEventListenerToFindFriendButton = id => {
     findAFriendButton.addEventListener("click", () => {
         const friendsInput = document.querySelector("#userName").value
         getFriends(friendsInput)
-            .then(response => {
-                renderFriendsResults(response)
-                attachEventListenerToSaveFriendButton()
+        .then(response => {
+            renderFriendsResults(response)
+            attachEventListenerToSaveFriendButton()
 
             })
     })
@@ -62,15 +61,16 @@ export const friendsDashboardHTML = (friends) => {
 }
 
 export const attachEventListenerToSaveFriendButton = id => {
-    const friendsContainer = document.querySelector(".friendsSection")
+    const friendsContainer = document.querySelector("#friendsResultsContainer")
     friendsContainer.addEventListener("click", event => {
+        console.log(event)
         addAFriend.addFriend()
         getFriendsForDash()
-            .then(response => renderFriendsList(response))
+        .then(response => renderFriendsList(response))
         const formContainer = document.querySelector(".formContainer")
         formContainer.innerHTML = ""
         addNewFriendButton()
-        attachEventListenerToFindFriendButton()
-    })
+        attachEventListenerToAddFriendButton()
+        })
 
 }
