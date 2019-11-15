@@ -10,20 +10,16 @@ const getValue = selector => {
 };
 
 // Executed when create new article is clicked and when edit button is clicked
-export const handleFormCreation = (isNewArticle, userId, articleId) => {
-	return isNewArticle
-		? renderForm(true, userId, articleId)
-		: renderForm(false, userId, articleId)
-};
+export const handleFormCreation = (userId, articleId) => renderForm(userId, articleId);
 
 // Executed when edit icon is clicked on an article
 export const handleEditArticle = (userId, articleId) => {
-	handleFormCreation(false, userId, articleId);
+	renderForm(userId, articleId);
 
-	// TO DO: continue twerking on dis shiznizz
-	putArticle(article)
-		.then(() => renderNewsPage(userId));
 };
+	// // TO DO: continue twerking on dis shiznizz
+	// putArticle(article)
+	// 	.then(() => renderNewsPage(userId));
 
 // Executed when delete is clicked on an article
 export const handleDeleteArticle = (userId, articleId) => {

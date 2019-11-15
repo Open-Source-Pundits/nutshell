@@ -1,23 +1,23 @@
 // Author: Manila Bui
 // create html for the form
-export default isNewArticle => {
-	const button = isNewArticle
+export default articleId => {
+	const button = articleId
 		? `
 			<input 
-				class="button-save f6 fw5 bg-white orange hover-white hover-bg-green pointer pa2 pv1 mt2 mb3 mr3 fr br2"
-				form="articleForm"
-				type="submit" 
-				name="saveArticle" 
-				value="Save"
-			/>
-		`
-		:`
-			<input 
-				class="button-update f6 pv1 ph3 mv3 mr3 fr br2"
+				class="button-update f6 fw5 bg-white orange hover-white hover-bg-green pointer pa2 pv1 mt2 mb3 mr3 fr br2"
 				form="articleForm"
 				type="submit" 
 				name="updateArticle" 
 				value="Update"
+			/>
+		`
+		:`
+			<input 
+				class="button-save f6 pv1 ph3 mv3 mr3 fr br2"
+				form="articleForm"
+				type="submit" 
+				name="saveArticle" 
+				value="Save"
 			/>
 		`;
 
@@ -53,7 +53,7 @@ export default isNewArticle => {
 					/>
 				</fieldset>
 				<input 
-					class="input-id" 
+					class="articleInput-id" 
 					type="number" 
 					name="id" 
 					hidden

@@ -3,21 +3,34 @@
 // These functions will render the html + add event listeners where applicable.
 import createArticle from "./createArticle";
 import createForm from "./createForm";
-import { getCurrUserArticles } from "./APIManager";
+import { getArticle, getCurrUserArticles } from "./APIManager";
 import { handleDeleteArticle, handleEditArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
 
+// TO DO
+const populateForm = articleId => {
+	getArticle(articleId)
+		.then(({ title, synopsis, url, id }) => {
+			document.querySelector(".articleInput-title").value = title;
+			document.querySelector(".articleInput-synopsis").value = synopsis;
+			document.querySelector(".articleInput-url").value = url;
+			document.querySelector(".articleInput-id").value = id;
+		})
+};
+
 // Executed when "Create new article" or "Edit article" is clicked
-export const renderForm = (isNewArticle, userId, articleId) => {
+export const renderForm = (userId, articleId) => {
 	const formContainer = document.querySelector(".formContainer");
 
-	formContainer.innerHTML = createForm(isNewArticle);
+	formContainer.innerHTML = createForm(articleId);
 
-	const submitButton = isNewArticle ? document.querySelector(".button-save") : document.querySelector(".button-update");
+	const submitButton = articleId ? document.querySelector(".button-update") : document.querySelector(".button-save");
 
 	submitButton.addEventListener("click", e => {
 		e.preventDefault();
 		handleFormSubmission(userId, articleId);
 	});
+
+	if (articleId) populateForm(articleId);
 };
 
 // Executed when the news page is initially rendered + after there's a change to a user's articles (delete, edit, create).
@@ -59,5 +72,5 @@ export const renderNewsPage = id => {
 
 	const newArticleFormLink = document.querySelector(".newArticleFormLink");
 
-	newArticleFormLink.addEventListener("click", () => handleFormCreation(true, userId, 0));
+	newArticleFormLink.addEventListener("click", () => handleFormCreation(userId, 0));
 };
