@@ -12,9 +12,8 @@ export default {
     callEvents() {
         API.getEvents()
             .then(DOM.putEventsOnDOM)
-            .then(DOM.putNewEventButtonOnDOM)
-            .then(DOM.delete)
-            .then(DOM.edit)
-
+        DOM.putNewEventButtonOnDOM()
+        DOM.deleteEvent()
+        DOM.edit()
     }
 }

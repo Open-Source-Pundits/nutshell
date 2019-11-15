@@ -2,8 +2,6 @@
 
 import API from "../events/APIManager.js"
 import DOM from "../events/domManager.js"
-const activeUser = sessionStorage.getItem("activeUser")
-const activeUserId = parseInt(activeUser)
 
 //Defines event handlers
 
@@ -25,8 +23,11 @@ export default {
                 .then(DOM.putNewEventButtonOnDOM)
 
             // activeUserID = sessionStorage.getItem("activeUser", user.id)
-            
+
         } else {
+
+            const activeUser = sessionStorage.getItem("activeUser")
+            const activeUserId = parseInt(activeUser)
 
             const eventName = document.querySelector("#eventNameField")
             const eventDate = document.querySelector("#eventDateField")
@@ -45,17 +46,16 @@ export default {
                 .then(DOM.putNewEventButtonOnDOM)
         }
     },
-
+}
     //Add delete button to events
 
-    attachEventDeleteButton() {
+//     attachEventDeleteButton() {
 
-        if (event.target.id.startsWith("deleteButton--")) {
-            const entryToDelete = event.target.id.split("--")[1]
-
-            API.deleteEntry(entryToDelete)
-                .then(API.getEvents)
-                .then(DOM.putEventsOnDOM)
-        }
-    }
-}
+//         if (event.target.id.startsWith("deleteButton--")) {
+//             const entryToDelete = event.target.id.split("--")[1]
+//             API.deleteEntry(entryToDelete)
+//                 .then(API.getEvents)
+//                 .then(DOM.putEventsOnDOM)
+//         }
+//     }
+// }
