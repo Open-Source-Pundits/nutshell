@@ -3,25 +3,38 @@
 // These functions will render the html + add event listeners where applicable.
 import createArticle from "./createArticle";
 import createForm from "./createForm";
-import { getCurrUserArticles } from "./APIManager";
+import { getArticle, getCurrUserArticles } from "./APIManager";
 import { handleDeleteArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
 
+const populateForm = articleId => {
+	getArticle(articleId)
+		.then(({ title, synopsis, url, timestamp, id }) => {
+			document.querySelector(".articleInput-title").value = title;
+			document.querySelector(".articleInput-synopsis").value = synopsis;
+			document.querySelector(".articleInput-url").value = url;
+			document.querySelector(".articleInput-timestamp").value = timestamp;
+			document.querySelector(".articleInput-id").value = id;
+		});
+};
+
 // Executed when "Create new article" or "Edit article" is clicked
-export const renderForm = (isNewArticle, userId, articleId) => {
+export const renderForm = (userId, articleId) => {
 	const formContainer = document.querySelector(".formContainer");
 
-	formContainer.innerHTML = createForm(isNewArticle);
+	formContainer.innerHTML = createForm(articleId);
 
-	const submitButton = isNewArticle ? document.querySelector(".button-save") : document.querySelector(".button-update");
+	const submitButton = articleId ? document.querySelector(".button-update") : document.querySelector(".button-save");
 
 	submitButton.addEventListener("click", e => {
 		e.preventDefault();
 		handleFormSubmission(userId, articleId);
 	});
+
+	if (articleId) populateForm(articleId);
 };
 
-// Executed when the news page is initially rendered + after there's a change to a user's articles (delete, edit, create).
-export const renderArticles = (userId, articles) => {
+// Executed by rendering news page
+const renderArticles = (userId, articles) => {
 	const contentContainer = document.querySelector(".contentContainer");
 
 	let articlesHTML = "";
@@ -31,11 +44,18 @@ export const renderArticles = (userId, articles) => {
 	contentContainer.innerHTML = articlesHTML;
 
 	const deleteArticleEls = document.querySelectorAll(".delete-article");
+	const editArticleEls = document.querySelectorAll(".edit-article");
 
 	deleteArticleEls.forEach(el => {
 		const articleId = el.id.split("--")[1];
 
 		el.addEventListener("click", () => handleDeleteArticle(userId, articleId));
+	});
+
+	editArticleEls.forEach(el => {
+		const articleId = parseInt(el.id.split("--")[1]);
+
+		el.addEventListener("click", () => handleFormCreation(userId, articleId));
 	});
 };
 
@@ -52,5 +72,5 @@ export const renderNewsPage = id => {
 
 	const newArticleFormLink = document.querySelector(".newArticleFormLink");
 
-	newArticleFormLink.addEventListener("click", () => handleFormCreation(true, userId, 0));
+	newArticleFormLink.addEventListener("click", () => handleFormCreation(userId, 0));
 };
