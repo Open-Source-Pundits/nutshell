@@ -109,7 +109,7 @@ export const editTask = () => {
                             .then(getAllTasks)
                             .then(response => {
                                 const container = document.querySelector(".contentContainer")
-                                container.innerHTML = "<h2>Tasks</h2>"
+                                container.innerHTML = ""
                                 renderTasks(response)
                             })
 
