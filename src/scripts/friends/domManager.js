@@ -26,7 +26,7 @@ export const renderFriendsList = (friends) => {
     })
     const allFriendsContainer = document.querySelector(".contentContainer")
     allFriendsContainer.innerHTML = ""
-    allFriendsContainer.innerHTML += HtmlForAllFriendsList
+    allFriendsContainer.innerHTML = HtmlForAllFriendsList
 }
 
 
@@ -65,12 +65,15 @@ export const attachEventListenerToSaveFriendButton = id => {
     friendsContainer.addEventListener("click", event => {
         console.log(event)
         addAFriend.addFriend()
-        getFriendsForDash()
-        .then(response => renderFriendsList(response))
+       .then(getFriendsForDash)
+        .then(response => {
+            console.log(response)
+        renderFriendsList(response)
         const formContainer = document.querySelector(".formContainer")
         formContainer.innerHTML = ""
         addNewFriendButton()
         attachEventListenerToAddFriendButton()
+    })
         })
 
 }
