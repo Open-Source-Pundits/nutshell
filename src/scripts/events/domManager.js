@@ -47,11 +47,18 @@ export default {
 
     // Attaches event listener to delete button with attachEventDeleteButton
 
-    delete() {
+    deleteEvent() {
 
         const deleteButtons = document.querySelector(".contentContainer")
 
-        deleteButtons.addEventListener("click", () => eventHandlers.attachEventDeleteButton())
+        deleteButtons.addEventListener("click", event => {
+            if (event.target.id.startsWith("deleteButton--")) {
+                const entryToDelete = event.target.id.split("--")[1]
+                API.deleteEntry(entryToDelete)
+                    .then(API.getEvents)
+                    .then(this.putEventsOnDOM)
+            }
+        })
 
     },
 
@@ -60,12 +67,13 @@ export default {
     edit() {
 
         const editButtons = document.querySelector(".contentContainer")
-        
+
         let entryID = ""
+
         editButtons.addEventListener("click", event => {
-            putEventFormOnDOM()
             if (event.target.id.startsWith("editButton--")) {
                 entryID = event.target.id.split("--")[1]
+                putEventFormOnDOM()
                 API.updateEvent(entryID)
             }
         })
