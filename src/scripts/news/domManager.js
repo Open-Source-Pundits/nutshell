@@ -4,17 +4,18 @@
 import createArticle from "./createArticle";
 import createForm from "./createForm";
 import { getArticle, getCurrUserArticles } from "./APIManager";
-import { handleDeleteArticle, handleEditArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
+import { handleDeleteArticle, handleFormCreation, handleFormSubmission } from "./eventHandlers";
 
 // TO DO
 const populateForm = articleId => {
 	getArticle(articleId)
-		.then(({ title, synopsis, url, id }) => {
+		.then(({ title, synopsis, url, timestamp, id }) => {
 			document.querySelector(".articleInput-title").value = title;
 			document.querySelector(".articleInput-synopsis").value = synopsis;
 			document.querySelector(".articleInput-url").value = url;
+			document.querySelector(".articleInput-timestamp").value = timestamp;
 			document.querySelector(".articleInput-id").value = id;
-		})
+		});
 };
 
 // Executed when "Create new article" or "Edit article" is clicked
@@ -33,8 +34,8 @@ export const renderForm = (userId, articleId) => {
 	if (articleId) populateForm(articleId);
 };
 
-// Executed when the news page is initially rendered + after there's a change to a user's articles (delete, edit, create).
-export const renderArticles = (userId, articles) => {
+// Executed by rendering news page
+const renderArticles = (userId, articles) => {
 	const contentContainer = document.querySelector(".contentContainer");
 
 	let articlesHTML = "";
@@ -53,9 +54,9 @@ export const renderArticles = (userId, articles) => {
 	});
 
 	editArticleEls.forEach(el => {
-		const articleId = el.id.split("--")[1];
+		const articleId = parseInt(el.id.split("--")[1]);
 
-		el.addEventListener("click", () => handleEditArticle(userId, articleId));
+		el.addEventListener("click", () => handleFormCreation(userId, articleId));
 	});
 };
 

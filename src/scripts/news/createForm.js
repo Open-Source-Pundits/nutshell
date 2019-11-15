@@ -1,6 +1,7 @@
 // Author: Manila Bui
 // create html for the form
 export default articleId => {
+	const header = articleId ? "Edit Article" : "Create New Article";
 	const button = articleId
 		? `
 			<input 
@@ -23,7 +24,7 @@ export default articleId => {
 
 	return `
 		<div class="article-form ph5 pt4 pb5 mt5 mr3 br3 shadow-1">
-			<h3>Create New Article</h3>
+			<h3>${header}</h3>
 			<form id="articleForm">
 				<fieldset>
 					<label for="title" class="f6 b db mb2">Title</label>
@@ -52,6 +53,12 @@ export default articleId => {
 						required
 					/>
 				</fieldset>
+				<input
+					class="articleInput-timestamp" 
+					type="text" 
+					name="timestamp" 
+					hidden
+				/>
 				<input 
 					class="articleInput-id" 
 					type="number" 
