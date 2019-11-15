@@ -55,18 +55,25 @@ export const renderMessagePage = () => {
             .then(messages => addHTML(messages))
     
     }
-
     
-    messagesGetCall();
-    newMessageButton();
-    
-
     const editMessageEventListener = () => {
         const contentContainer = document.querySelector(".contentContainer")
         contentContainer.addEventListener("click", edit.editMessage)
     }
-    editMessageEventListener()
+    
+    messagesGetCall();
+    newMessageButton();
+    editMessageEventListener();
+
+    const newFriendsMessage = () =>{
+        const friendsMessage = document.querySelector(".contentContainer")
+        // console.log(friendsMessage)
+        friendsMessage.addEventListener("click", edit.addFriend)
+    }
+
+    newFriendsMessage()
 }
+
 
 
 
