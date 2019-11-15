@@ -11,3 +11,8 @@ export const saveMessageFriend = (friendRequest) => {
         body: JSON.stringify(friendRequest)
     })
 }
+
+export const getFriendsForDash = (activeUser) => {
+    return fetch(`${baseurl}friends?_expand=user`)
+        .then(response => response.json())
+}
